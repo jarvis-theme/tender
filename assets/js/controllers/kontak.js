@@ -1,4 +1,4 @@
-define(['jquery','gmap_api','mobilegmap'], function()
+define(['jquery','mobilegmap'], function()
 {
 	return new function()
 	{

@@ -13,9 +13,6 @@ require.config({
         'jq_ui' : {
             deps : ['jquery'],
         },
-        'gmap_api' : {
-            deps : ['jquery'],
-        },
         'mobilegmap' : {
             deps : ['jquery'],
         },        
