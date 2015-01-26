@@ -1,4 +1,4 @@
-define(['jquery','bootstrap','jquery_sharrre','noty','flexslider'], function()
+define(['jquery','jq_ui','bootstrap','jquery_sharrre','noty','flexslider'], function()
 {
 	return new function()
 	{

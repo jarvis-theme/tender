@@ -57,7 +57,6 @@ require([
     router.define('kontak', 'kontak@run');
 
     //produk
-    // router.define('produk', 'menu@run');
     router.define('produk/*', 'produk@run');
     
     router.run();
