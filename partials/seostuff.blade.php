@@ -1,4 +1,4 @@
-<title>{{$title}}</title>
+	<title>{{$title}}</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="{{$description}}">
 	<meta name="keywords" content="{{$keywords}}">
@@ -12,4 +12,5 @@
 	<meta name="DC.Subject" content="{{$keywords}}">
 	<meta name="DC.Description" content="{{$description}}">
 	<link rel="canonical" href="{{URL::full()}}">
+	<link rel="tender-theme" href="{{dirTemaToko()}}tender/">
 	

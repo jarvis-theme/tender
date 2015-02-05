@@ -126,7 +126,8 @@
 								<tr>
 									<td colspan="3"><div class="item">Total</div></td>
 									<td><strong><span id='totalcart'>
-										{{jadiRupiah(Shpcart::cart()->total())}}</span></strong></td>
+										{{jadiRupiah(Shpcart::cart()->total())}}</span></strong>
+									</td>
 								</tr>
 							</tbody>
 						</table>

@@ -1,4 +1,4 @@
-define(['jquery','jq_ui','bootstrap','jquery_sharrre','noty','flexslider'], function()
+define(['jquery','jq_ui','bootstrap','flexslider','jquery_sharrre','noty'], function($)
 {
 	return new function()
 	{
@@ -7,9 +7,10 @@ define(['jquery','jq_ui','bootstrap','jquery_sharrre','noty','flexslider'], func
 		self.run = function()
 		{
 			slider();
-			navWidth();
 			addToCartButton();
-			sharrreButtons();		
+			close_dialog();
+			sharrreButtons();
+			// trustklik();
 
 			//tampilkan error noty
 			var msg = $('#message');
@@ -23,7 +24,7 @@ define(['jquery','jq_ui','bootstrap','jquery_sharrre','noty','flexslider'], func
 			$('#flexslider-product .slides a').fancybox();
 
 		    $(".collapse").collapse();		    
-		};		
+		};
 
 		var addToCartButton = function(){
 			$('#addorder').submit(function(){
@@ -122,22 +123,22 @@ define(['jquery','jq_ui','bootstrap','jquery_sharrre','noty','flexslider'], func
 
 		var fluidDialog = function() {
 		    var $visible = $(".ui-dialog:visible");
-		    	// each open dialog
+	    	// each open dialog
 		    var $this = $visible;
 	        if($("#cart_dialog").dialog('option','maxWidth') && $("#cart_dialog").dialog('option','width')){
 	    		$this.css("max-width",$("#cart_dialog").dialog('option','maxWidth'));
 	            //reposition dialog
 	            var wWidth = $(window).width();
-	                // check window width against dialog width
-	                if (wWidth < $("#cart_dialog").dialog('option','maxWidth') + 100) {
-	                    // keep dialog from filling entire screen
-	                    $this.css("width", "90%");
-	                    
-	                }
-	              //reposition dialog
-	              $("#cart_dialog").dialog('option','position',$( "#cart_dialog" ).dialog( "option", "position" ));              
+                // check window width against dialog width
+                if (wWidth < $("#cart_dialog").dialog('option','maxWidth') + 100) {
+                    // keep dialog from filling entire screen
+                    $this.css("width", "90%");
+                }
+	            //reposition dialog
+	            $("#cart_dialog").dialog('option','position',$( "#cart_dialog" ).dialog( "option", "position" ));              
 	            $( "#cart_dialog" ).dialog( "option", "position", $( "#cart_dialog" ).dialog( "option", "position" ));
 	    	}
+
 	    	if ($("#cart_dialog").dialog("option","fluid")) {
 	            // namespace window resize
 	            $(window).on("resize.responsive", function () {
@@ -154,7 +155,12 @@ define(['jquery','jq_ui','bootstrap','jquery_sharrre','noty','flexslider'], func
 		};
 		
 		var close_dialog = function(){
-			$("#cart_dialog").dialog('close');
+			$(document).ready(function(){
+				// $('.ui-dialog').click(function(){
+					// alert('hai');
+					// $("#cart_dialog").dialog('close');
+				// });
+			});
 		};
 
 		var deletecartdialog = function(){
@@ -296,14 +302,14 @@ define(['jquery','jq_ui','bootstrap','jquery_sharrre','noty','flexslider'], func
 		  });
 		};
 
-		// ===================
-		// Navigation function
-		// ===================
-		var navWidth = function(){
-			var nav = $('.horizontal-nav ul li').not('.horizontal-nav ul li li'), 
-			size = $('.horizontal-nav ul li').not('.horizontal-nav ul li li').size(),
-			percent = 100/size;
-			nav.css('width', percent+'%').parent().show();
+		var trustklik = function(){
+            var trustklik_id = "MioercsF235J4rvIsJaRviS";
+            /* * * DONT EDIT BELOW THIS LINE * * */
+            (function() {
+                var tk = document.createElement("script"); tk.type = "text/javascript"; tk.async = true;
+                tk.src = "http://www.trustklik.com/areviews/js/si-embed-insidediv.js";
+                (document.getElementsByTagName("body")[0] || document.getElementsByTagName("head")[0]).appendChild(tk);
+            })();
 		};
 
 	};

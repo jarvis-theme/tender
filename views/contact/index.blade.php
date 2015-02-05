@@ -1,21 +1,16 @@
 @if(Session::has('msg2'))
-
 <div class="success" id='message' style='display:none'>
     Terima kasih, pesan anda sudah terkirim.
 </div>
-
 @endif
 
 @if(Session::has('msg3'))
-
 <div class="success" id='message' style='display:none'>
     Maaf, pesan anda belum terkirim.
 </div>
-
 @endif
 
 @if($errors->all())
-
 <div class="error" id='message' style='display:none'>
     Terjadi kesalahan dalam menyimpan data.<br><br>
 
@@ -23,7 +18,6 @@
     -{{ $message }}<br>
     @endforeach
 </div>
-
 @endif
 
 <div class="container">
@@ -37,13 +31,9 @@
 			<div class="span12">
 				<!-- Replace data-center with your address -->
 				@if($kontak->lat=='0' || $kontak->lat=='0')
-
 					<div class="gmap" id="map" data-center="{{ $kontak->alamat }}" data-zoom="15"></div>
-
 				@else
-
 					<div class="gmap" id="map" data-center="{{ $kontak->lat.','.$kontak->lng }}" data-zoom="15"></div>
-
 				@endif
 			</div>
 		</div>

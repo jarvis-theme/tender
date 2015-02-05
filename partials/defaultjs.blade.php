@@ -3,7 +3,7 @@
 	<!-- {{HTML::script("themes/".$toko->akunId."-tema/leisure/assets/js/bootstrap.min.js")}}
 	{{HTML::script("themes/".$toko->akunId."-tema/tender/assets/js/shop.js")}}
 	{{HTML::script("themes/".$toko->akunId."-tema/tender/assets/js/script.js")}}
-	{{HTML::script(dirTemaToko().'tender/assets/js/jquery.sharrre.js')}}
+	{{HTML::script(dirTemaToko().'tender/assets/js/lib/jquery.sharrre.js')}}
 	{{HTML::script(dirTemaToko().'tender/assets/js/sharrre.js')}} -->
 
     <script data-main="http://{{Request::server('SERVER_NAME').'/'.dirTemaToko()}}tender/assets/js/app-main" src="/js/require.js"></script>

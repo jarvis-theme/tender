@@ -1,22 +1,24 @@
+var dirTema = document.getElementsByTagName('link')[1].getAttribute('href');
+
 require.config({
     baseUrl: '/',
     shim: {
         "bootstrap": {
             deps: ['jquery'],
         },
-        "noty"  : {
-            deps : ['jquery'],
-        },
-        'jquery_sharrre' : {
+        'flexslider' : {
             deps : ['jquery'],
         },
         'jq_ui' : {
             deps : ['jquery'],
-        },
+        },       
+        'jquery_sharrre' : {
+            deps : ['jquery'],
+        },        
         'mobilegmap' : {
             deps : ['jquery'],
         },        
-        'flexslider' : {
+        "noty"  : {
             deps : ['jquery'],
         },
     },
@@ -24,24 +26,24 @@ require.config({
     paths: {
         // LIBRARY
         bootstrap           : ['//maxcdn.bootstrapcdn.com/bootstrap/2.2.1/js/bootstrap.min','js/bootstrap.min'],
+        cart                : 'js/cart',
+        flexslider          : dirTema+'assets/js/lib/jquery.flexslider',
         jq_ui               : 'js/jquery-ui',
-        jquery_sharrre      : 'js/theme-shop/jquery.sharrre',
-        jquery              : ['//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min','js/theme-shop/jquery1.8.2.min'],
+        jquery              : ['//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min',dirTema+'assets/js/lib/jquery1.8.2.min'],
+        jquery_sharrre      : dirTema+'assets/js/lib/jquery.sharrre',
+        mobilegmap          : dirTema+'assets/js/lib/jquery.mobilegmap',
         noty                : 'js/jquery.noty',
-        // shop                : 'js/theme-shop/shop',
-        select_nav          : 'http://example.jstore.test/themes/7-tema/tender/assets/js/lib/selectNav',
-        mobilegmap          : 'http://example.jstore.test/themes/7-tema/tender/assets/js/lib/jquery.mobilegmap',
-        flexslider          : 'http://example.jstore.test/themes/7-tema/tender/assets/js/lib/jquery.flexslider',
+        select_nav          : dirTema+'assets/js/lib/selectNav',
 
         // ROUTE
         router              : 'js/router',
 
-        //controller
-        blog                : 'http://example.jstore.test/themes/7-tema/tender/assets/js/controllers/blog',
-        home                : 'http://example.jstore.test/themes/7-tema/tender/assets/js/controllers/home',
-        kontak              : 'http://example.jstore.test/themes/7-tema/tender/assets/js/controllers/kontak',
-        menu                : 'http://example.jstore.test/themes/7-tema/tender/assets/js/menu',
-        produk              : 'http://example.jstore.test/themes/7-tema/tender/assets/js/controllers/produk',
+        // CONTROLLER
+        blog                : dirTema+'assets/js/controllers/blog',
+        home                : dirTema+'assets/js/controllers/home',
+        kontak              : dirTema+'assets/js/controllers/kontak',
+        menu                : dirTema+'assets/js/menu',
+        produk              : dirTema+'assets/js/controllers/produk',
     }
 });
 require([
@@ -50,13 +52,13 @@ require([
     'menu',
 ], function(router,b,menu)
 {
-    // home
+    // HOME
     router.define('home', 'home@run');
 
-    // kontak
+    // KONTAK
     router.define('kontak', 'kontak@run');
 
-    //produk
+    // PRODUK
     router.define('produk/*', 'produk@run');
     
     router.run();
