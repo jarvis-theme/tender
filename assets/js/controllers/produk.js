@@ -6,9 +6,10 @@ define(['jquery','jq_ui','bootstrap','flexslider','jquery_sharrre','noty'], func
 		var URL = window.location.protocol + "//" + window.location.host;
 		self.run = function()
 		{
+			close_dialog();
+			deletecartdialog();
 			slider();
 			addToCartButton();
-			close_dialog();
 			sharrreButtons();
 			// trustklik();
 
@@ -135,8 +136,8 @@ define(['jquery','jq_ui','bootstrap','flexslider','jquery_sharrre','noty'], func
                     $this.css("width", "90%");
                 }
 	            //reposition dialog
-	            $("#cart_dialog").dialog('option','position',$( "#cart_dialog" ).dialog( "option", "position" ));              
-	            $( "#cart_dialog" ).dialog( "option", "position", $( "#cart_dialog" ).dialog( "option", "position" ));
+	            $("#cart_dialog").dialog('option','position',$("#cart_dialog").dialog("option","position"));              
+	            $("#cart_dialog").dialog("option","position",$("#cart_dialog").dialog("option","position"));
 	    	}
 
 	    	if ($("#cart_dialog").dialog("option","fluid")) {
@@ -155,28 +156,27 @@ define(['jquery','jq_ui','bootstrap','flexslider','jquery_sharrre','noty'], func
 		};
 		
 		var close_dialog = function(){
-			$(document).ready(function(){
-				// $('.ui-dialog').click(function(){
-					// alert('hai');
-					// $("#cart_dialog").dialog('close');
-				// });
+			$('#close_pop').live('click',function(){
+				$('#cart_dialog').dialog().dialog('close');
 			});
 		};
 
 		var deletecartdialog = function(){
-			if(window.confirm("Hapus dari cart?")){
-				$.ajax({
-			    	url: URL+'/cart/delete/'+id,		    
-			    	type: 'get'
-				}).done(function(data){
-					$('#shoppingcartplace').html(data['cart']);
-					$( "#cart_dialog" ).dialog('close');	
-				}).done(function(){
-					noty({"text":'Produk dalam cart berhasil di hapus.',"layout":"center","type":'success','speed': 100});	
-				}).error(function(){
-					noty({"text":'Opps, terjadi kesalahan.',"layout":"center","type":'error','speed': 100});		
-				});	
-			}		
+			$('.cart.remove').live('click',function(){
+				if(window.confirm("Hapus dari cart?")){
+					$.ajax({
+				    	url: URL+'/cart/delete/'+id,		    
+				    	type: 'get'
+					}).done(function(data){
+						$('#shoppingcartplace').html(data['cart']);
+						$( "#cart_dialog" ).dialog('close');	
+					}).done(function(){
+						noty({"text":'Produk dalam keranjang berhasil di hapus.',"layout":"center","type":'success','speed': 100});	
+					}).error(function(){
+						noty({"text":'Opps, terjadi kesalahan.',"layout":"center","type":'error','speed': 100});		
+					});	
+				}
+			});
 		};
 
 		var sharrreButtons = function(){
@@ -249,9 +249,6 @@ define(['jquery','jq_ui','bootstrap','flexslider','jquery_sharrre','noty'], func
 			});
 		};
 
-		// ===============
-		// Slider function
-		// ===============
 		var slider = function(){
 			//Main slider
 			$('#flexcarousel').flexslider({

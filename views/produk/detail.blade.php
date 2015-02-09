@@ -52,22 +52,26 @@
 				<!-- Product Info -->
 				<div class="details wrapper well">
 					@if($setting->checkoutType=='1')	
-						<p class="price"><i class="icon-tagX"></i> {{ jadiRUpiah($produk->hargaJual) }} <small style="font-size: 14px;"><span style='text-decoration:line-through'>{{ jadiRUpiah($produk->hargaCoret) }}</span></small></p>
+						<p class="price"><i class="icon-tagX"></i> {{ jadiRUpiah($produk->hargaJual) }} 
+							@if($produk->hargaCoret != 0)	
+							<small style="font-size: 14px;">
+								<span style='text-decoration:line-through'>{{ jadiRUpiah($produk->hargaCoret) }}</span>
+							</small>
+							@endif	
+						</p>
 
-						<form action="#" id='addorder'>				
-							@if($opsiproduk->count()>0)					
-								
+						<form action="#" id='addorder'>	
+
+							@if($opsiproduk->count()>0)									
 							<select name="opsiproduk">
 								<option value="">-- Pilih Opsi --</option>
-								@foreach ($opsiproduk as $key => $opsi)
-								
+
+								@foreach ($opsiproduk as $key => $opsi)									
 								<option value="{{$opsi->id}}" {{ $opsi->stok==0 ? 'disabled':''}} >
 									{{$opsi->opsi1.($opsi->opsi2=='' ? '':' / '.$opsi->opsi2).($opsi->opsi3=='' ? '':' / '.$opsi->opsi3)}} {{jadiRupiah($opsi->harga)}}							
 								</option>
-
 								@endforeach  
 							</select>
-
 							@endif				
 
 							<div class="clearfix">
@@ -79,20 +83,17 @@
 						</form>
 
 					@elseif($setting->checkoutType=='2')	
-						<form action="#" id='addorder'>				
-							@if($opsiproduk->count()>0)					
-								
+						<form action="#" id='addorder'>		
+							@if($opsiproduk->count()>0)	
 								<select name="opsiproduk">
 									<option value="">-- Pilih Opsi --</option>
 									@foreach ($opsiproduk as $key => $opsi)	
-									
 									<option value="{{$opsi->id}}">
 										{{$opsi->opsi1.($opsi->opsi2=='' ? '':' / '.$opsi->opsi2).($opsi->opsi3=='' ? '':' / '.$opsi->opsi3)}} 							
 									</option>
-
 									@endforeach	
 								</select>
-							@endif				
+							@endif	
 
 							<div class="clearfix">
 								<div class="pull-left">
@@ -103,7 +104,13 @@
 						</form>
 
 					@elseif($setting->checkoutType=='3')	
-						<p class="price"><i class="icon-tag"></i> {{ jadiRUpiah($produk->hargaJual) }} <small style="font-size: 14px;"><span style='text-decoration:line-through'>{{ jadiRUpiah($produk->hargaCoret) }}</span></small></p>
+						<p class="price"><i class="icon-tag"></i> {{ jadiRUpiah($produk->hargaJual) }} 
+							@if($produk->hargaCoret != 0)	
+							<small style="font-size: 14px;">
+								<span style='text-decoration:line-through'>{{ jadiRUpiah($produk->hargaCoret) }}</span>
+							</small>
+							@endif	
+						</p>
 
 						@if(@$po)	
 					      	<br>
@@ -122,19 +129,17 @@
 
 				          	@if((strtotime($po->tanggalmulai)<=strtotime(date('Y-m-d'))) && (($po->kuota!=0) || ($po->tanggalakhir!='0000-00-00' && strtotime($po->tanggalakhir)>=strtotime(date('Y-m-d'))) ) )		
 					          	<form action="#" id='addorder'>
-									@if($opsiproduk->count()>0)	
-
-										<select name="opsiproduk">
-											<option value="">-- Pilih Opsi --</option>
-											@foreach ($opsiproduk as $key => $opsi)	
-
-												<option value="{{$opsi->id}}" {{ $opsi->stok==0 ? 'disabled':''}} >
-													{{$opsi->opsi1.($opsi->opsi2=='' ? '':' / '.$opsi->opsi2).($opsi->opsi3=='' ? '':' / '.$opsi->opsi3)}} {{jadiRupiah($opsi->harga)}}
-												</option>
-
-											@endforeach	
-										</select>
-									@endif				
+								
+								@if($opsiproduk->count()>0)	
+									<select name="opsiproduk">
+										<option value="">-- Pilih Opsi --</option>
+										@foreach ($opsiproduk as $key => $opsi)	
+											<option value="{{$opsi->id}}" {{ $opsi->stok==0 ? 'disabled':''}} >
+												{{$opsi->opsi1.($opsi->opsi2=='' ? '':' / '.$opsi->opsi2).($opsi->opsi3=='' ? '':' / '.$opsi->opsi3)}} {{jadiRupiah($opsi->harga)}}
+											</option>
+										@endforeach	
+									</select>
+								@endif	
 
 									<div class="clearfix">
 										<div class="pull-left">
