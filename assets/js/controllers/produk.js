@@ -156,7 +156,7 @@ define(['jquery','jq_ui','bootstrap','flexslider','jquery_sharrre','noty'], func
 		};
 		
 		var close_dialog = function(){
-			$('#close_pop').live('click',function(){
+			$('.left .button-dialog').live('click',function(){
 				$('#cart_dialog').dialog().dialog('close');
 			});
 		};
