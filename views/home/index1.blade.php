@@ -16,51 +16,44 @@
                     {{pluginSidePowerup()}}
                     <section>
                         @foreach(getBanner(1) as $item)
-
                         <div><a href="{{URL::to($item->url)}}"><img src="{{URL::to(getPrefixDomain().'/galeri/'.$item->gambar)}}" /></a></div>
-                        
                         @endforeach
                     </section>
 
                     <section>
                         <h5>Hubungi Kami</h5>
-                        <!-- <a href="ymsgr:sendIM?{{$shop->ym}}"><img src="http://opi.yahoo.com/online?u=hilmi_atiq&m=g&t=2" border="0"></a> -->
+                        @if($shop->ym)
                         {{ymyahoo($shop->ym)}}
                         <br><br>
+                        @endif                        
 
                         @if($shop->telepon)
-
                         <address class="row-fluid">
                             <div class="pull-left clabel"><i class="icon-phone"></i><i class=""></i></div>
                             <div class="pull-left cdata"> {{$shop->telepon}}</div>
                         </address>
-
                         @endif
-                        @if($shop->hp)
 
+                        @if($shop->hp)
                         <address class="row-fluid">
                             <div class="pull-left clabel"><i class="icon-phone"></i><i class=""></i></div>
                             <div class="pull-left cdata"> {{$shop->hp}}</div>
                         </address>
-
                         @endif
-                        @if($shop->email)
 
+                        @if($shop->email)
                         <address class="row-fluid">
                             <div class="pull-left clabel"><i class="icon-mail"></i></div>
                             <div class="pull-left cdata"><a href="mailto:{{$shop->email}}" target="_top">{{$shop->email}}</a></div>
                         </address>
-
                         @endif
-                        @if($shop->bb)
 
+                        @if($shop->bb)
                         <address class="row-fluid">
                             <div class="pull-left" style="float:left"><img src="{{URL::to('img/bbm.png')}}" style="width: 20px;"><span>{{$shop->bb}}</span></div>
                             <div class="pull-left cdata"></div>
                         </address>
-
-                        @endif
-                        <!-- <a href="ymsgr:sendIM?YahooID&m=Hello"><img src="http://opi.yahoo.com/online?u=YahooID&t=StyleID" border="0"></a> -->
+                        @endif  
                     </section>
 
                     <section>

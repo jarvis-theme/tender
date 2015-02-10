@@ -66,10 +66,12 @@
 							<div class="pull-left cdata"><a href="#">{{$kontak->bb}}</a></div>
 						</address>
 						@endif  
+						@if($kontak->ym)
 						<address class="row-fluid">
 							<div class="pull-left clabel"></div>
 							<div class="pull-left cdata">{{ymyahoo($kontak->ym)}}</div>
 						</address>
+						@endif
 					@else  
 						<div></div>
 					@endif  
@@ -116,4 +118,4 @@
 		</section>
 		
 	</footer>
-	{{--pluginPowerup()--}}
+	{{pluginPowerup()}}

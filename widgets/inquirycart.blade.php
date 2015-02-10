@@ -5,18 +5,15 @@
 
 <!-- Bubble Cart Item -->
 <div class="cartbubble">
-	<div class="arrow-box">
-		
+	<div class="arrow-box">		
 		<!-- Item 1 -->
-		@if (Shpcart::wishlist()->contents())
-			@foreach (Shpcart::wishlist()->contents() as $key => $cart)
-			
+		@if (Shpcart::wishlist()->contents())	
+			@foreach (Shpcart::wishlist()->contents() as $key => $cart)	
 			<div class="clearfix">
 				<a href="#">{{$cart['name']}}</a> <span class="theme pull-right">{{ $cart['qty'] }}</span>
 			</div>
-
-			@endforeach
-		@endif
+			@endforeach	
+		@endif	
 		<!-- Total -->
 		<div class="clearfix">
 			TOTAL <span class="theme pull-right">{{ Shpcart::wishlist()->total_items() }}</span>
@@ -26,6 +23,5 @@
 			<a href="javascript:void(0)" id="closeit">Close</a>
 			<a href="{{URL::to('checkout')}}" class="btn theme btn-mini pull-right">Checkout</a>
 		</div>
-
 	</div>
 </div>

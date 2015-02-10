@@ -11,7 +11,7 @@ define(['jquery','jq_ui','bootstrap','flexslider','jquery_sharrre','noty'], func
 			slider();
 			addToCartButton();
 			sharrreButtons();
-			// trustklik();
+			trustklik();
 
 			//tampilkan error noty
 			var msg = $('#message');
@@ -162,7 +162,10 @@ define(['jquery','jq_ui','bootstrap','flexslider','jquery_sharrre','noty'], func
 		};
 
 		var deletecartdialog = function(){
-			$('.cart.remove').live('click',function(){
+			$(".remove").live('click',function(){
+				var delete_id = $(".remove a[href*=deletecartdialog]").attr("href");
+				id = delete_id.match(/'([^']+)'/)[1];
+				
 				if(window.confirm("Hapus dari cart?")){
 					$.ajax({
 				    	url: URL+'/cart/delete/'+id,		    
