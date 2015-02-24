@@ -11,13 +11,10 @@ require.config({
         },
         'jq_ui' : {
             deps : ['jquery'],
-        },       
-        'jquery_sharrre' : {
-            deps : ['jquery'],
-        },        
+        },
         'mobilegmap' : {
             deps : ['jquery'],
-        },        
+        },
         "noty"  : {
             deps : ['jquery'],
         },
@@ -39,11 +36,11 @@ require.config({
         router              : 'js/router',
 
         // CONTROLLER
-        blog                : dirTema+'assets/js/controllers/blog',
-        home                : dirTema+'assets/js/controllers/home',
-        kontak              : dirTema+'assets/js/controllers/kontak',
-        menu                : dirTema+'assets/js/menu',
-        produk              : dirTema+'assets/js/controllers/produk',
+        blog                : dirTema+'assets/js/pages/blog',
+        home                : dirTema+'assets/js/pages/home',
+        kontak              : dirTema+'assets/js/pages/kontak',
+        menu                : dirTema+'assets/js/pages/default',
+        produk              : dirTema+'assets/js/pages/produk',
     }
 });
 require([

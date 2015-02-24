@@ -11,7 +11,7 @@ define(['jquery','jq_ui','bootstrap','flexslider','jquery_sharrre','noty'], func
 			slider();
 			addToCartButton();
 			sharrreButtons();
-			trustklik();
+			plugin_trustklik();
 
 			//tampilkan error noty
 			var msg = $('#message');
@@ -24,7 +24,7 @@ define(['jquery','jq_ui','bootstrap','flexslider','jquery_sharrre','noty'], func
 			// Fancybox function
 			$('#flexslider-product .slides a').fancybox();
 
-		    $(".collapse").collapse();		    
+			$(".collapse").collapse();		    
 		};
 
 		var addToCartButton = function(){
@@ -36,7 +36,7 @@ define(['jquery','jq_ui','bootstrap','flexslider','jquery_sharrre','noty'], func
 				var namaopsi = '';
 				valid = true;
 				var n = ~~Number(qty);
-		    	status = String(n) === qty && n > 0;
+				status = String(n) === qty && n > 0;
 
 				opsi = $('#addorder select').val();
 				if(opsi==''){
@@ -65,19 +65,19 @@ define(['jquery','jq_ui','bootstrap','flexslider','jquery_sharrre','noty'], func
 						open: function(event, ui){ 
 							$(".ui-dialog-titlebar").hide();
 							h = parseInt($("#cart_dialog").css('height'))/2-8;
-		                    w = parseInt($("#cart_dialog").css('width'))/2-8;
-		                    $("#cart_dialog").find('img').css({'margin-left':w+'px','margin-top':h+'px'});
+							w = parseInt($("#cart_dialog").css('width'))/2-8;
+							$("#cart_dialog").find('img').css({'margin-left':w+'px','margin-top':h+'px'});
 
-		                    //disable scroll
-		                    $('html, body').css({
-							    'overflow': 'hidden'
+							//disable scroll
+							$('html, body').css({
+								'overflow': 'hidden'
 							})
 
 							fluidDialog();
 							$.ajax({
-						    	url: URL+'/cart',
-						    	type: 'post',
-						    	data: {produkId:id,namaopsi:namaopsi,opsi:opsi,qty:qty}
+								url: URL+'/cart',
+								type: 'post',
+								data: {produkId:id,namaopsi:namaopsi,opsi:opsi,qty:qty}
 							}).done(function(data){
 								if(data=='stok'){
 									noty({"text":'Maaf, Stok tidak mencukupi.',"layout":"center","type":'error','speed': 100});
@@ -87,12 +87,12 @@ define(['jquery','jq_ui','bootstrap','flexslider','jquery_sharrre','noty'], func
 									$( "#cart_dialog" ).dialog('close');		
 								}
 								else if(data['url']) 
-		                        {
-		                            //alert('hahahaa');
-		                            //console.log('hihii');
-		                            $( "#cart_dialog" ).dialog('close');  
-		                            window.location = data.url + "/checkout";
-		                        }
+								{
+									//alert('hahahaa');
+									//console.log('hihii');
+									$( "#cart_dialog" ).dialog('close');  
+									window.location = data.url + "/checkout";
+								}
 								else{
 									//noty({"text":'Selamat, Item sudah tertambah ke cart.',"layout":"center","type":'success','speed': 100});		
 									$('#shoppingcartplace').html(data['cart']);
@@ -111,7 +111,7 @@ define(['jquery','jq_ui','bootstrap','flexslider','jquery_sharrre','noty'], func
 						beforeClose: function( event, ui ) {
 							$('.ui-dialog-content').html('<img src="'+URL+'/img/spinner-mini.gif" style="position:relative;margin:100px">');
 							$('html, body').css({
-							    'overflow': 'auto'
+								'overflow': 'auto'
 							})
 						}
 					});
@@ -123,36 +123,36 @@ define(['jquery','jq_ui','bootstrap','flexslider','jquery_sharrre','noty'], func
 		};
 
 		var fluidDialog = function() {
-		    var $visible = $(".ui-dialog:visible");
-	    	// each open dialog
-		    var $this = $visible;
-	        if($("#cart_dialog").dialog('option','maxWidth') && $("#cart_dialog").dialog('option','width')){
-	    		$this.css("max-width",$("#cart_dialog").dialog('option','maxWidth'));
-	            //reposition dialog
-	            var wWidth = $(window).width();
-                // check window width against dialog width
-                if (wWidth < $("#cart_dialog").dialog('option','maxWidth') + 100) {
-                    // keep dialog from filling entire screen
-                    $this.css("width", "90%");
-                }
-	            //reposition dialog
-	            $("#cart_dialog").dialog('option','position',$("#cart_dialog").dialog("option","position"));              
-	            $("#cart_dialog").dialog("option","position",$("#cart_dialog").dialog("option","position"));
-	    	}
+			var $visible = $(".ui-dialog:visible");
+			// each open dialog
+			var $this = $visible;
+			if($("#cart_dialog").dialog('option','maxWidth') && $("#cart_dialog").dialog('option','width')){
+				$this.css("max-width",$("#cart_dialog").dialog('option','maxWidth'));
+				//reposition dialog
+				var wWidth = $(window).width();
+				// check window width against dialog width
+				if (wWidth < $("#cart_dialog").dialog('option','maxWidth') + 100) {
+					// keep dialog from filling entire screen
+					$this.css("width", "90%");
+				}
+				//reposition dialog
+				$("#cart_dialog").dialog('option','position',$("#cart_dialog").dialog("option","position"));              
+				$("#cart_dialog").dialog("option","position",$("#cart_dialog").dialog("option","position"));
+			}
 
-	    	if ($("#cart_dialog").dialog("option","fluid")) {
-	            // namespace window resize
-	            $(window).on("resize.responsive", function () {
-	                var wWidth = $(window).width();
-	                // check window width against dialog width
-	                if (wWidth < $("#cart_dialog").dialog('option','maxWidth') + 50) {
-	                    // keep dialog from filling entire screen
-	                    $this.css("width", "90%");	                    
-	                }
-	              	//reposition dialog
-	              	$("#cart_dialog").dialog('option','position',$( "#cart_dialog" ).dialog( "option", "position" ));
-	            });
-	        }
+			if ($("#cart_dialog").dialog("option","fluid")) {
+				// namespace window resize
+				$(window).on("resize.responsive", function () {
+					var wWidth = $(window).width();
+					// check window width against dialog width
+					if (wWidth < $("#cart_dialog").dialog('option','maxWidth') + 50) {
+						// keep dialog from filling entire screen
+						$this.css("width", "90%");	                    
+					}
+					//reposition dialog
+					$("#cart_dialog").dialog('option','position',$( "#cart_dialog" ).dialog( "option", "position" ));
+				});
+			}
 		};
 		
 		var close_dialog = function(){
@@ -168,8 +168,8 @@ define(['jquery','jq_ui','bootstrap','flexslider','jquery_sharrre','noty'], func
 				
 				if(window.confirm("Hapus dari cart?")){
 					$.ajax({
-				    	url: URL+'/cart/delete/'+id,		    
-				    	type: 'get'
+						url: URL+'/cart/delete/'+id,		    
+						type: 'get'
 					}).done(function(data){
 						$('#shoppingcartplace').html(data['cart']);
 						$( "#cart_dialog" ).dialog('close');	
@@ -255,61 +255,59 @@ define(['jquery','jq_ui','bootstrap','flexslider','jquery_sharrre','noty'], func
 		var slider = function(){
 			//Main slider
 			$('#flexcarousel').flexslider({
-		    animation: "slide",
-		    controlNav: false,
-		    animationLoop: false,
-		    slideshow: false,
-		    itemWidth: 188,
-		    //itemMargin: 5 ,
-		    asNavFor: '#flexslider'
+			animation: "slide",
+			controlNav: false,
+			animationLoop: false,
+			slideshow: false,
+			itemWidth: 188,
+			//itemMargin: 5 ,
+			asNavFor: '#flexslider'
 		  });
 		   
 		  $('#flexslider').flexslider({
-		    animation: "slide",
-		    controlNav: true,
-		    animationLoop: true,
-		    slideshow: true,
+			animation: "slide",
+			controlNav: true,
+			animationLoop: true,
+			slideshow: true,
 			slideshowSpeed: 5000,
 			animationSpeed: 600,
-		    sync: "#flexcarousel"
+			sync: "#flexcarousel"
 		  });
 		  
 		  // Thubnail
 		  $('#flexcarousel-product').flexslider({
-		    animation: "slide",
-		    controlNav: false,
-		    animationLoop: false,
-		    slideshow: false,
-		    itemWidth: 115,
-		    asNavFor: "#flexslider-product"
+			animation: "slide",
+			controlNav: false,
+			animationLoop: false,
+			slideshow: false,
+			itemWidth: 115,
+			asNavFor: "#flexslider-product"
 		  });
 		  
 		  $('#flexslider-product').flexslider({
-		    animation: "slide",
-		    controlNav: true,
-		    animationLoop: true,
-		    slideshow: false,
-		    sync: "#flexcarousel-product"
+			animation: "slide",
+			controlNav: true,
+			animationLoop: true,
+			slideshow: false,
+			sync: "#flexcarousel-product"
 		  });
 
 		  // Brands
 		  $('#flexcarousel-brands').flexslider({
-		    animation: "slide",
-		    controlNav: false,
-		    animationLoop: true,
-		    slideshow: false,
-		    itemWidth: 180,
+			animation: "slide",
+			controlNav: false,
+			animationLoop: true,
+			slideshow: false,
+			itemWidth: 180,
 		  });
 		};
 
-		var trustklik = function(){
-            var trustklik_id = "MioercsF235J4rvIsJaRviS";
-            /* * * DONT EDIT BELOW THIS LINE * * */
-            (function() {
-                var tk = document.createElement("script"); tk.type = "text/javascript"; tk.async = true;
-                tk.src = "http://www.trustklik.com/areviews/js/si-embed-insidediv.js";
-                (document.getElementsByTagName("body")[0] || document.getElementsByTagName("head")[0]).appendChild(tk);
-            })();
+		var plugin_trustklik = function(){
+			window.trustklik_id = "MioercsF235J4rvIsJaRviS";
+			/* * * DONT EDIT BELOW THIS LINE * * */
+			var tk = document.createElement("script"); tk.type = "text/javascript"; tk.async = true;
+			tk.src = "http://www.trustklik.com/areviews/js/si-embed-insidediv.js";
+			(document.getElementsByTagName("body")[0] || document.getElementsByTagName("head")[0]).appendChild(tk);
 		};
 
 	};

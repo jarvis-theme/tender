@@ -5,7 +5,7 @@
 		<div class="container">
 			<section class="row foot">
 			@foreach($tautan as $key=>$group)  
-	            @if($key!=2)  
+	            @if($key!=0)  
 				<article class="span3">
 					<strong>{{$group->nama}}</strong>
 					<ul>
