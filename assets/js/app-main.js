@@ -39,6 +39,7 @@ require.config({
         blog                : dirTema+'assets/js/pages/blog',
         home                : dirTema+'assets/js/pages/home',
         kontak              : dirTema+'assets/js/pages/kontak',
+        member              : dirTema+'assets/js/pages/member',
         menu                : dirTema+'assets/js/pages/default',
         produk              : dirTema+'assets/js/pages/produk',
     }
@@ -50,10 +51,14 @@ require([
 ], function(router,b,menu)
 {
     // HOME
+    router.define('/', 'home@run');
     router.define('home', 'home@run');
 
     // KONTAK
     router.define('kontak', 'kontak@run');
+
+    // MEMBER
+    router.define('member/*', 'member@run');
 
     // PRODUK
     router.define('produk/*', 'produk@run');

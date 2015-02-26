@@ -25,7 +25,7 @@
                         @if($shop->ym)
                         {{ymyahoo($shop->ym)}}
                         <br><br>
-                        @endif                        
+                        @endif  
 
                         @if($shop->telepon)
                         <address class="row-fluid">
@@ -44,13 +44,18 @@
                         @if($shop->email)
                         <address class="row-fluid">
                             <div class="pull-left clabel"><i class="icon-mail"></i></div>
-                            <div class="pull-left cdata"><a href="mailto:{{$shop->email}}" target="_top">{{$shop->email}}</a></div>
+                            <div class="pull-left cdata">
+                                <a href="mailto:{{$shop->email}}" target="_top">{{$shop->email}}</a>
+                            </div>
                         </address>
                         @endif
 
                         @if($shop->bb)
                         <address class="row-fluid">
-                            <div class="pull-left" style="float:left"><img src="{{URL::to('img/bbm.png')}}" style="width: 20px;"><span>{{$shop->bb}}</span></div>
+                            <div class="pull-left" style="float:left">
+                                <img src="{{URL::to('img/bbm.png')}}" style="width: 20px;">
+                                <span>{{$shop->bb}}</span>
+                            </div>
                             <div class="pull-left cdata"></div>
                         </address>
                         @endif  
@@ -61,7 +66,10 @@
                         <span>
                             <ul>
                             @foreach ($testimo as $items)
-                                <li><a href="#">{{$items->isi}}</a><br /><small>oleh <strong>{{$items->nama}}</strong></small></li>
+                                <li>
+                                    <a href="#">{{$items->isi}}</a><br />
+                                    <small>oleh <strong>{{$items->nama}}</strong></small>
+                                </li>
                             @endforeach
                             </ul>
                             <strong style="float:right"><a href="{{URL::to('testimoni')}}">More..</a></strong>
@@ -89,7 +97,7 @@
                                     <a href="{{slugProduk($myproduk)}}" class="info">Beli</a>
                                 </div>
                             </div>
-                            <p class="product-title"><a href="{{slugProduk($myproduk)}}">{{$myproduk->nama}}</a></p>
+                            <p class="product-title"><a href="{{slugProduk($myproduk)}}">{{shortDescription($myproduk->nama, 32)}}</a></p>
                         </article>
                     @endforeach
                     </div>

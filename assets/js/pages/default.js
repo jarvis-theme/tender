@@ -8,19 +8,11 @@ define(['jquery','bootstrap','select_nav'], function()
 			}).mouseleave(function(){
 				$('ul', this).stop().slideUp(150);
 			});
-			
-            $('#myTab a:first').tab('show');
 
 			$('.horizontal-nav ul li').mouseenter(function(){
 				$('ul', this).stop().slideDown('fast');
 			}).mouseleave(function(){
 				$('ul', this).stop().slideUp(150);
-			});
-
-			// Tab function
-			$('#myTab a, #myTab button').click(function (e) {
-				e.preventDefault();
-				$(this).tab('show');
 			});
 
 			if ($.browser.msie) {

@@ -227,17 +227,24 @@
                                 <br>
                                 <textarea class="span6" name='alamat'>{{$user->alamat}}</textarea>
                                 <br>
-                                <br>Negara
-
-                                <br>{{Form::select('negara',array('' => '-- Pilih Negara --') + $negara , ($user ? $user->negara :(Input::old("negara")? Input::old("negara") :"")), array('required'=>'', 'id'=>'negara'))}}
                                 <br>
-                                <br>Provinsi
 
-                                <br>{{Form::select('provinsi',array('' => '-- Pilih Provinsi --') + $provinsi , ($user ? $user->provinsi :(Input::old("provinsi")? Input::old("provinsi") :"")),array('required'=>'','id'=>'provinsi'))}}
+                                <div>
+                                    Negara<br>
+                                    {{Form::select('negara',array('' => '-- Pilih Negara --') + $negara , ($user ? $user->negara :(Input::old("negara")? Input::old("negara") :"")), array('required'=>'', 'id'=>'negara'))}}
+                                </div>
                                 <br>
-                                <br>Kota
-
-                                <br>{{Form::select('kota',array('' => '-- Pilih Kota --') + $kota , ($user ? $user->kota :(Input::old("kota")? Input::old("kota") :"")),array('required'=>'','id'=>'kota'))}}
+                                <br>
+                                <div>
+                                    Provinsi
+                                    <br>{{Form::select('provinsi',array('' => '-- Pilih Provinsi --') + $provinsi , ($user ? $user->provinsi :(Input::old("provinsi")? Input::old("provinsi") :"")),array('required'=>'','id'=>'provinsi'))}}
+                                </div>
+                                <br>
+                                <br>
+                                <div>
+                                    Kota
+                                    <br>{{Form::select('kota',array('' => '-- Pilih Kota --') + $kota , ($user ? $user->kota :(Input::old("kota")? Input::old("kota") :"")),array('required'=>'','id'=>'kota'))}}
+                                </div>
                                 <br>
                                 <br>Kode Pos
                                 <br>

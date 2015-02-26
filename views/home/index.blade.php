@@ -19,7 +19,7 @@
                             {{is_outstok($myproduk)}}
 
                             <div class="view view-thumb">
-                                <img style="margin:auto;heigth:300px" src="{{URL::to(getPrefixDomain().'/produk/'.$myproduk->gambar1)}}" alt="" />
+                                <img style="margin:auto; max-height:250px;" src="{{URL::to(getPrefixDomain().'/produk/'.$myproduk->gambar1)}}" alt="" />
                                 {{--HTML::image('upload/produk/'.$myproduk->gambar1)--}}
                                 <div class="mask">
                                     <h2>{{jadiRupiah($myproduk->hargaJual,$matauang)}}</h2>
