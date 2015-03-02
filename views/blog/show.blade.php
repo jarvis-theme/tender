@@ -62,12 +62,13 @@
 							@endforeach
 						</ul>
 					</aside>
-
+					@if($tag != "")
 					<aside class="clearfix tags">
 						<p class="title"><i class="icon-tag"></i> <strong>Tags</strong></p>
 						
 						{{ getTags('<span style="text-decoration: underline;"></span>',$tag)}}
 					</aside>
+					@endif
 				</div>
 			</div>
 		</div>

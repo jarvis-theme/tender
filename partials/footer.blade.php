@@ -6,7 +6,7 @@
 			<section class="row foot">
 			@foreach($tautan as $key=>$group)  
 	            @if($key!=0)  
-				<article class="span3">
+				<article class="span3" style="margin-bottom: 50px;">
 					<strong>{{$group->nama}}</strong>
 					<ul>
 						@foreach($quickLink as $key=>$link)  
@@ -31,7 +31,7 @@
 				@endif  
 			@endforeach  
 
-				<article class="span3">
+				<article class="span3" style="margin-bottom: 50px;">
 					<strong>Posting Terbaru</strong>
 					<ul>
 					@foreach ($blogBaru as $items)  
@@ -39,7 +39,7 @@
 					@endforeach  
 					</ul>
 				</article>
-				<article class="span3">
+				<article class="span3 pull-right">
 					<strong>Newsletter</strong>
 					<div id="mc_embed_signup">
 						<form action="{{@$mailing->action}}" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form newsletter" class="validate form-inline" target="_blank" novalidate>
@@ -50,7 +50,7 @@
 					@if($kontak->alamat!='')  
 						<address class="row-fluid">
 							<div class="pull-left clabel"><i class="icon-location"></i></div>
-							<div class="pull-left cdata">{{$kontak->alamat}}, {{$kota->nama}}</div>
+							<div class="pull-left cdata">{{$kontak->alamat}} {{--$kota->nama--}}</div>
 						</address>
 						<address class="row-fluid">
 							<div class="pull-left clabel"><i class="icon-phone"></i></div>

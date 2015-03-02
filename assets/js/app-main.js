@@ -62,6 +62,9 @@ require([
 
     // PRODUK
     router.define('produk/*', 'produk@run');
+
+    // BLOG
+    router.define('blog/*', 'blog@run');
     
     router.run();
     menu.run();
