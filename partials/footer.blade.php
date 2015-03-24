@@ -84,7 +84,7 @@
 		</div>
 		<section class="row-fluid doubleline">
 			<div class="container">
-				<div class="span6">
+				<div class="span12">
 				@foreach(list_banks() as $value)  
 					<img src="{{bank_logo($value)}}" alt="{{$value->name}}" />
 				@endforeach  
