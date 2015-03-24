@@ -6,10 +6,10 @@
 			<div class="row-fluid">
 				<div class="pull-left greet">
 				
-				@if ( ! Sentry::check())  
+				@if ( !is_login() )  
 					Selamat berbelanja, {{HTML::link('member', 'Login here')}}
 				@else  
-					Selamat datang {{HTML::link('member', Sentry::getUser()->nama)}}, {{HTML::link('logout', 'logout here')}}
+					Selamat datang {{HTML::link('member', user()->nama)}}, {{HTML::link('logout', 'logout here')}}
 				@endif  
 
 				</div>
@@ -27,10 +27,10 @@
 				<div class="span12 clearfix">
 					<div class="top row">
 
-					@if(@getimagesize(URL::to(getPrefixDomain().'/galeri/'.$toko->logo)))	
+					@if(@getimagesize(URL::to(logo_image_url())))	
 						<div class="span8 logo image">
 							<a href="{{URL::to('home')}}">
-								<img  src="{{URL::to(getPrefixDomain().'/galeri/'.$toko->logo)}}" alt="" />
+								{{ HTML::image( logo_image_url() ) }}
 							</a>
 						</div>
 					@else 	

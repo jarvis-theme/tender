@@ -14,11 +14,15 @@
 							<li>
 
 							@if($link->halaman=='1')  
+								@if($link->linkTo == 'halaman/about-us')
+								<a href={{"'".URL::to(strtolower($link->linkTo))."'"}}>{{$link->nama}}</a>
+								@else
 								<a href={{"'".URL::to("halaman/".strtolower($link->linkTo))."'"}}>{{$link->nama}}</a>
+								@endif
 							@elseif($link->halaman=='2')  
 								<a href={{"'".URL::to("blog/".strtolower($link->linkTo))."'"}}>{{$link->nama}}</a>
 							@elseif($link->url=='1')  
-								<a href="http://{{strtolower($link->linkTo)}}">{{$link->nama}}</a>
+								<a href={{"'".URL::to(strtolower($link->linkTo))."'"}}>{{$link->nama}}</a>
 							@else  
 								<a href={{"'".URL::to(strtolower($link->linkTo))."'"}}>{{$link->nama}}</a>
 							@endif  
@@ -34,7 +38,7 @@
 				<article class="span3" style="margin-bottom: 50px;">
 					<strong>Posting Terbaru</strong>
 					<ul>
-					@foreach ($blogBaru as $items)  
+					@foreach (list_blog() as $items)  
 						<li><a href="{{slugBlog($items)}}">{{$items->judul}}</a><br /><small>diposting pada {{waktuTgl($items->created_at)}}</small></li>
 					@endforeach  
 					</ul>
@@ -69,7 +73,7 @@
 						@if($kontak->ym)
 						<address class="row-fluid">
 							<div class="pull-left clabel"></div>
-							<div class="pull-left cdata">{{ymyahoo($kontak->ym)}}</div>
+							<div class="pull-left cdata">{{ymstatus($kontak->ym)}}</div>
 						</address>
 						@endif
 					@else  
@@ -81,9 +85,15 @@
 		<section class="row-fluid doubleline">
 			<div class="container">
 				<div class="span6">
-				@foreach($bank as $value)  
-					<img style="" src="{{URL::to('img/'.$value->bankdefault->logo)}}" alt="{{$value->bankdefault->logo}}" />
+				@foreach(list_banks() as $value)  
+					<img src="{{bank_logo($value)}}" alt="{{$value->name}}" />
 				@endforeach  
+				@if(list_payments()[2]->aktif == 1)	
+				    <img src="{{URL::to('img/bank/ipaymu.jpg')}}" alt="support ipaymu" />
+				@endif	
+				@if(count(list_dokus()) > 0 && list_dokus()->status == 1)
+				    <img src="{{URL::to('img/bank/doku.jpg')}}" alt="support doku myshortcart" />
+				@endif
 				</div>
 			</div>
 		</section>
