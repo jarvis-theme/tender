@@ -1,18 +1,18 @@
 @if(Session::has('message'))
 <div class="error" id='message' style='display:none'>
-	<p>Maaf, kode order anda tidak ditemukan.</p>					
+	<p>Maaf, kode order anda tidak ditemukan.</p>
 </div>
 @endif
 
 <div class="container">
 	<!-- Checkout Page -->
 	<section class="order">
-		<div class="row standard">										
+		<div class="row standard">
 			<header class="span12 prime">
 				<h3>Konfirmasi Order</h3>
 			</header>
 		</div>
-		<div class="row standard">										
+		<div class="row standard">
 			<header class="span12 prime">
 				@if($checkouttype==2)
 					<p>Silakan Hubungi Pihak Toko untuk Mengkonfirmasi Order Anda</p>
@@ -28,6 +28,6 @@
 						{{Form::close()}}
 				@endif
 			</header>
-		</div>				
+		</div>
 	</section>
 </div>

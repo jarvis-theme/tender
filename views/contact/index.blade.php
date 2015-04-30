@@ -21,11 +21,9 @@
 @endif
 
 <div class="container">
-
 	<!-- ============ -->
 	<!-- Contact page -->
 	<!-- ============ -->
-
 	<section class="page">
 		<div class="row">
 			<div class="span12">
@@ -55,7 +53,7 @@
 
 			<div class="span8">
 				<div class="row-fluid">
-					<form action="{{URL::to('kontak')}}" class="wrap contactform" method="post">
+					<form action="{{url('kontak')}}" class="wrap contactform" method="post">
 						<div class="span6">
 							<label for="inputEmail">Name</label>
 							<input type="text" id="inputEmail" placeholder="Name" class="input-medium" name='namaKontak' required>

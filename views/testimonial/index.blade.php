@@ -48,7 +48,7 @@ Terjadi kesalahan dalam menyimpan data.<br>
 
 				<div class="span4 list">
 					<div class="tab-pane active" id="login">
-						<form class="form-horizontal" action="{{URL::to('testimoni')}}" method="post">
+						<form class="form-horizontal" action="{{url('testimoni')}}" method="post">
 							<div class="control-group">
 								<label style="text-align: left; width:auto;" class="control-label" for="inputEmail"><b>Buat Testimonial</b></label><br>
 							</div>

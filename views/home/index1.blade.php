@@ -15,8 +15,12 @@
                 <div class="sidebar">
                     {{pluginSidePowerup()}}
                     <section>
-                        @foreach(getBanner(1) as $item)
-                        <div><a href="{{URL::to($item->url)}}"><img src="{{URL::to(getPrefixDomain().'/galeri/'.$item->gambar)}}" /></a></div>
+                        @foreach(vertical_banner() as $item)
+                        <div>
+                            <a href="{{$item->url}}">
+                                <img src="{{banner_image_url($item->gambar)}}" />
+                            </a>
+                        </div>
                         @endforeach
                     </section>
 
@@ -53,7 +57,7 @@
                         @if($shop->bb)
                         <address class="row-fluid">
                             <div class="pull-left" style="float:left">
-                                <img src="{{URL::to('img/bbm.png')}}" style="width: 20px;">
+                                <img src="{{url('img/bbm.png')}}" style="width: 20px;">
                                 <span>{{$shop->bb}}</span>
                             </div>
                             <div class="pull-left cdata"></div>
@@ -65,14 +69,14 @@
                         <h5>Testimonial</h5>
                         <span>
                             <ul>
-                            @foreach ($testimo as $items)
+                            @foreach (list_testimonial(3) as $items)
                                 <li>
                                     <a href="#">{{$items->isi}}</a><br />
                                     <small>oleh <strong>{{$items->nama}}</strong></small>
                                 </li>
                             @endforeach
                             </ul>
-                            <strong style="float:right"><a href="{{URL::to('testimoni')}}">More..</a></strong>
+                            <strong style="float:right"><a href="{{url('testimoni')}}">More..</a></strong>
                         </span>
                     </section>
                 </div>
@@ -83,21 +87,20 @@
 
                     <!-- Collection -->
                     <div class="tab-content sideline">
-                    @foreach($produk as $key=>$myproduk)
+                    @foreach(list_product() as $key=>$myproduk)
                         <article style="height: 262px;position:relative;">
                             {{is_terlaris($myproduk)}}
                             {{is_produkbaru($myproduk)}}
                             {{is_outstok($myproduk)}}
                             <div class="view view-thumb">
-                                <img style="margin:auto;" src="{{URL::to(getPrefixDomain().'/produk/'.$myproduk->gambar1)}}" alt="" class="img1" />
-                                {{--HTML::image('upload/produk/'.$myproduk->gambar1)--}}
+                                <img style="margin:auto;" src="{{product_image_url($myproduk->gambar1)}}" class="img1" />
                                 <div class="mask">
-                                    <h2>{{jadiRupiah($myproduk->hargaJual,$matauang)}}</h2>
-                                    <p>{{shortDescription($myproduk->deskripsi,100)}}</p>
-                                    <a href="{{slugProduk($myproduk)}}" class="info">Beli</a>
+                                    <h2>{{price($myproduk->hargaJual,$matauang)}}</h2>
+                                    <p>{{short_description($myproduk->deskripsi,100)}}</p>
+                                    <a href="{{product_url($myproduk)}}" class="info">Beli</a>
                                 </div>
                             </div>
-                            <p class="product-title"><a href="{{slugProduk($myproduk)}}">{{shortDescription($myproduk->nama, 32)}}</a></p>
+                            <p class="product-title"><a href="{{product_url($myproduk)}}">{{short_description($myproduk->nama, 32)}}</a></p>
                         </article>
                     @endforeach
                     </div>
@@ -107,5 +110,4 @@
             </div>
         </div>
     </section>
-    
 </div>

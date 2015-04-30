@@ -116,7 +116,7 @@
 					<div class="control-group">
 						<label class="control-label" for="inputEmail"></label>
 						<div class="controls">
-							<input type="checkbox" name='readme' value="1"> Saya telah membaca dan menyetujui <a href="{{URL::to('service')}}" target="_blank">Persyaratan Member</a>
+							<input type="checkbox" name='readme' value="1"> Saya telah membaca dan menyetujui <a href="{{url('service')}}" target="_blank">Persyaratan Member</a>
 						</div>
 					</div>			
 
@@ -130,5 +130,4 @@
 			</div>
 		</div>
 	</section>
-	
 </div>

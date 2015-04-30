@@ -42,7 +42,7 @@
 
 						<!-- Login -->
 					  	<div class="tab-pane active" id="login">
-							<form class="form-horizontal" action="{{URL::to('member/login')}}" method="post">
+							<form class="form-horizontal" action="{{url('member/login')}}" method="post">
 								<div class="control-group">
 									<label class="control-label" for="inputEmail"> Email</label>
 									<div class="controls">
@@ -67,7 +67,7 @@
 
 						<!-- Register -->
 						<div class="tab-pane" id="forgot">
-						  	<form class="form-horizontal" action="{{URL::to('member/forgetpassword')}}" method="post">
+						  	<form class="form-horizontal" action="{{url('member/forgetpassword')}}" method="post">
 								<div class="control-group">
 									<label class="control-label" for="inputEmail"> Email</label>
 									<div class="controls">
@@ -96,7 +96,7 @@
                         <li>Easy access to your order history and status</li>
                     </ul>
 
-                    <a href="{{URL::to('member/create')}}" class="theme">Create an Account →</a></p>
+                    <a href="{{url('member/create')}}" class="theme">Create an Account →</a></p>
 				</div>
 			</div>
 		</div>

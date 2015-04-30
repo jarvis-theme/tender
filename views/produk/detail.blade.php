@@ -13,16 +13,16 @@
 					<div id="flexslider-product" class="flexslider">
 						<ul class="slides">
 					    @if($produk->gambar1!='')	
-					    	<li><a href="{{URL::to(getPrefixDomain().'/produk/'.$produk->gambar1)}}"> {{HTML::image(getPrefixDomain().'/produk/'.$produk->gambar1)}}</a></li>
+					    	<li><a href="{{product_image_url($produk->gambar1)}}"> {{HTML::image(product_image_url($produk->gambar1))}}</a></li>
 					  	@endif
 					  	@if($produk->gambar2!='')	
-						    <li><a href="{{URL::to(getPrefixDomain().'/produk/'.$produk->gambar2)}}"> {{HTML::image(getPrefixDomain().'/produk/'.$produk->gambar2)}}</a></li>
+						    <li><a href="{{product_image_url($produk->gambar2)}}"> {{HTML::image(product_image_url($produk->gambar2))}}</a></li>
 					  	@endif
 					  	@if($produk->gambar3!='')			  	
-						    <li><a href="{{URL::to(getPrefixDomain().'/produk/'.$produk->gambar3)}}"> {{HTML::image(getPrefixDomain().'/produk/'.$produk->gambar3)}}</a></li>
+						    <li><a href="{{product_image_url($produk->gambar3)}}"> {{HTML::image(product_image_url($produk->gambar3))}}</a></li>
 					  	@endif
 					  	@if($produk->gambar4!='')			  	
-						    <li><a href="{{URL::to(getPrefixDomain().'/produk/'.$produk->gambar4)}}"> {{HTML::image(getPrefixDomain().'/produk/'.$produk->gambar4)}}</a></li>
+						    <li><a href="{{product_image_url($produk->gambar4)}}"> {{HTML::image(product_image_url($produk->gambar4))}}</a></li>
 					  	@endif  
 						</ul>	  
 					</div>
@@ -30,16 +30,16 @@
 					<div id="flexcarousel-product" class="flexslider visible-desktop">
 						<ul class="slides">
 						@if($produk->gambar1!='')			  	
-						    <li>{{HTML::image(getPrefixDomain().'/produk/thumb/'.$produk->gambar1)}}</li>
+						    <li>{{HTML::image(product_image_url($produk->gambar1,'thumb'))}}</li>
 					  	@endif
 					  	@if($produk->gambar2!='')			  	
-					    	<li>{{HTML::image(getPrefixDomain().'/produk/thumb/'.$produk->gambar2)}}</li>
+					    	<li>{{HTML::image(product_image_url($produk->gambar2,'thumb'))}}</li>
 					  	@endif
 					  	@if($produk->gambar3!='')			  	
-					    	<li>{{HTML::image(getPrefixDomain().'/produk/thumb/'.$produk->gambar3)}}</li>
+					    	<li>{{HTML::image(product_image_url($produk->gambar3,'thumb'))}}</li>
 					  	@endif
 					  	@if($produk->gambar4!='')			  	
-					    	<li>{{HTML::image(getPrefixDomain().'/produk/thumb/'.$produk->gambar4)}}</li>
+					    	<li>{{HTML::image(product_image_url($produk->gambar4,'thumb'))}}</li>
 					  	@endif  
 						</ul>
 					</div>
@@ -52,10 +52,10 @@
 				<!-- Product Info -->
 				<div class="details wrapper well">
 					@if($setting->checkoutType=='1')	
-						<p class="price"><i class="icon-tagX"></i> {{ jadiRUpiah($produk->hargaJual) }} 
+						<p class="price"><i class="icon-tagX"></i> {{ price($produk->hargaJual) }} 
 							@if($produk->hargaCoret != 0)	
 							<small style="font-size: 14px;">
-								<span style='text-decoration:line-through'>{{ jadiRUpiah($produk->hargaCoret) }}</span>
+								<span style='text-decoration:line-through'>{{ price($produk->hargaCoret) }}</span>
 							</small>
 							@endif	
 						</p>
@@ -68,7 +68,7 @@
 
 								@foreach ($opsiproduk as $key => $opsi)									
 								<option value="{{$opsi->id}}" {{ $opsi->stok==0 ? 'disabled':''}} >
-									{{$opsi->opsi1.($opsi->opsi2=='' ? '':' / '.$opsi->opsi2).($opsi->opsi3=='' ? '':' / '.$opsi->opsi3)}} {{jadiRupiah($opsi->harga)}}							
+									{{$opsi->opsi1.($opsi->opsi2=='' ? '':' / '.$opsi->opsi2).($opsi->opsi3=='' ? '':' / '.$opsi->opsi3)}} {{price($opsi->harga)}}							
 								</option>
 								@endforeach  
 							</select>
@@ -104,10 +104,10 @@
 						</form>
 
 					@elseif($setting->checkoutType=='3')	
-						<p class="price"><i class="icon-tag"></i> {{ jadiRUpiah($produk->hargaJual) }} 
+						<p class="price"><i class="icon-tag"></i> {{ price($produk->hargaJual) }} 
 							@if($produk->hargaCoret != 0)	
 							<small style="font-size: 14px;">
-								<span style='text-decoration:line-through'>{{ jadiRUpiah($produk->hargaCoret) }}</span>
+								<span style='text-decoration:line-through'>{{ price($produk->hargaCoret) }}</span>
 							</small>
 							@endif	
 						</p>
@@ -135,7 +135,7 @@
 										<option value="">-- Pilih Opsi --</option>
 										@foreach ($opsiproduk as $key => $opsi)	
 											<option value="{{$opsi->id}}" {{ $opsi->stok==0 ? 'disabled':''}} >
-												{{$opsi->opsi1.($opsi->opsi2=='' ? '':' / '.$opsi->opsi2).($opsi->opsi3=='' ? '':' / '.$opsi->opsi3)}} {{jadiRupiah($opsi->harga)}}
+												{{$opsi->opsi1.($opsi->opsi2=='' ? '':' / '.$opsi->opsi2).($opsi->opsi3=='' ? '':' / '.$opsi->opsi3)}} {{price($opsi->harga)}}
 											</option>
 										@endforeach	
 									</select>
@@ -222,15 +222,15 @@
 		            			{{is_outstok($myproduk)}} 
 
 								<div style="height: 220px;" class="view view-thumb">
-									{{HTML::image(getPrefixDomain().'/produk/'.$myproduk->gambar1, $myproduk->nama)}}
+									{{HTML::image(product_image_url($myproduk->gambar1, $myproduk->nama))}}
 									<div class="mask">
-										<h2>{{jadiRupiah($myproduk->hargaJual)}}</h2>
-							            <p>{{shortDescription($myproduk->deskripsi,100)}}</p>
-							            <a href="{{slugProduk($myproduk)}}" class="info">Lihat</a> 
+										<h2>{{price($myproduk->hargaJual)}}</h2>
+							            <p>{{short_description($myproduk->deskripsi,100)}}</p>
+							            <a href="{{product_url($myproduk)}}" class="info">Lihat</a> 
 									</div>
 								</div>
 
-								<p class="product-title"><a href="{{slugProduk($myproduk)}}">{{$myproduk->nama}}</a></p>
+								<p class="product-title"><a href="{{product_url($myproduk)}}">{{$myproduk->nama}}</a></p>
 							</article>
 						@endforeach	
 						</section>

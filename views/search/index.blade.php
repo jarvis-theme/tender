@@ -20,15 +20,16 @@
 							@foreach($hasilpro as $myproduk)
 							
 							<article style="text-align: justify">
-								<div class="span1">{{--HTML::image(getPrefixDomain().'/produk/thumb/'.$myproduk->gambar1, $myproduk->nama)--}}
-									<a href="{{slugProduk($myproduk)}}">
-										<img src="{{URL::to(getPrefixDomain().'/produk/thumb/'.$myproduk->gambar1)}}" alt="{{$myproduk->nama}}" id="gambar" />
+								<div class="span1">
+									{{--HTML::image(product_image_url($myproduk->gambar1), $myproduk->nama)--}}
+									<a href="{{product_url($myproduk)}}">
+										<img src="{{product_image_url($myproduk->gambar1,'thumb')}}" alt="{{$myproduk->nama}}" id="gambar" />
 									</a>
 								</div>
 
 								<div id="desc">
-									<a href="{{slugProduk($myproduk)}}"><h4 style="float:left">{{$myproduk->nama}}</h4></a><br><br>
-									<span style="text-align: left">{{shortDescription($myproduk->deskripsi,100)}}</span>
+									<a href="{{product_url($myproduk)}}"><h4 style="float:left">{{$myproduk->nama}}</h4></a><br><br>
+									<span style="text-align: left">{{short_description($myproduk->deskripsi,100)}}</span>
 								</div>
 							</article>
 
@@ -38,7 +39,7 @@
 							<article style="text-align: justify">
 								<div style="margin-left:1%;">
 									<a href="{{URL::to('halaman/'.$myhal->slug)}}"><h4 style="float:left">{{$myhal->judul}}</h4></a><br><br>
-									<span style="text-align: left">{{shortDescription($myhal->isi,100)}}</span>
+									<span style="text-align: left">{{short_description($myhal->isi,100)}}</span>
 								</div>
 							</article>
 
@@ -47,19 +48,17 @@
 
 							<article style="text-align: justify">
 								<div style="margin-left:1%;">
-									<a href="{{URL::to('blog/'.$myblog->slug)}}"><h4 style="float:left">{{$myblog->judul}}</h4></a><br><br>
-									<span style="text-align: left">{{shortDescription($myblog->isi,100)}}</span>
+									<a href="{{blog_url($myblog)}}"><h4 style="float:left">{{$myblog->judul}}</h4></a><br><br>
+									<span style="text-align: left">{{short_description($myblog->isi,100)}}</span>
 								</div>
 
 							</article>
 
 							@endforeach
 						@else
-
 							<article style="text-align: center; border: 0;">
-								<i>Hasil tidak ditemukan</i>
+								<i>Hasil pencarian tidak ditemukan</i>
 							</article>
-
 						@endif
 					</div>
 

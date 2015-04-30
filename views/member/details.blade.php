@@ -38,10 +38,8 @@
         <div class="row">
             <div class="span12">
                 <ul class="nav nav-tabs" id="myTab">
-                    <li class="active"><a href="#home">History Transaksi</a>
-                    </li>
-                    <li><a href="#profile">Profile</a>
-                    </li>
+                    <li class="active"><a href="#home">History Transaksi</a></li>
+                    <li><a href="#profile">Profile</a></li>
                 </ul>
 
                 <div class="tab-content">
@@ -49,54 +47,54 @@
                         <br>
                         @if($pengaturan->checkoutType!=2)
 
-	                        @if($order->count()>0)
+                            @if($order->count()>0)
                                 <table class="table table-bordered">
-		                            <thead>
-		                                <tr>
-		                                    <td width="15%">ID Order</td>
-		                                    <td width="15%">Tanggal Order</td>
-		                                    <td width="30%">Detail Order</td>
-		                                    <td width="20%">Total Order</td>
-		                                    <td width="10%">No. Resi</td>
-		                                    <td width="5%">Status</td>
-		                                    <td width="5%"></td>
-		                                </tr>
-		                            </thead>
-		                            <tbody>
-		                                @foreach ($order as $item)
-		                                
+                                    <thead>
                                         <tr>
-		                                    <td>
-		                                        @if($pengaturan->checkoutType==3)
+                                            <td width="15%">ID Order</td>
+                                            <td width="15%">Tanggal Order</td>
+                                            <td width="30%">Detail Order</td>
+                                            <td width="20%">Total Order</td>
+                                            <td width="10%">No. Resi</td>
+                                            <td width="5%">Status</td>
+                                            <td width="5%"></td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (list_order(10) as $item)
+                                        
+                                        <tr>
+                                            <td>
+                                                @if($pengaturan->checkoutType==3)
                                                     {{prefixOrder().$item->kodePreorder}}
                                                 @else
                                                     {{prefixOrder().$item->kodeOrder}}
                                                 @endif
-		                                    </td>
-		                                    <td>
-		                                        @if($pengaturan->checkoutType==3)
+                                            </td>
+                                            <td>
+                                                @if($pengaturan->checkoutType==3)
                                                     {{waktu($item->tanggalPreorder)}}
                                                 @else
                                                     {{waktu($item->tanggalOrder)}}
                                                 @endif
-		                                    </td>
-		                                    <td>
-		                                        <ul>
-		                                            @if($pengaturan->checkoutType==3)
-                                                        {{$item->preorderdata->produk->nama}} ({{$item->opsiSkuId==0 ? 'No Opsi' : $item->opsisku->opsi1.($item->opsisku->opsi2!='' ? ' / '.$item->opsisku->opsi2:'').($item->opsisku->opsi3!='' ? ' / '.$item->opsisku->opsi3:'')}}) - {{$item->jumlah}}
+                                            </td>
+                                            <td>
+                                                <ul>
+                                                    @if($pengaturan->checkoutType==3)
+                                                        {{$item->preorderdata->produk->nama}} ({{$item->opsiSkuId==0 ? 'No Opsi' : $item->opsisku['opsi1'].($item->opsisku['opsi2'] != '' ? ' / '.$item->opsisku['opsi2'] : '').($item->opsisku['opsi3'] != '' ? ' / '.$item->opsisku['opsi3'] : '')}}) - {{$item->jumlah}}
                                                     @else
                                                         @foreach ($item->detailorder as $detail)
-    		                                            <li>
-                                                            {{$detail->produk->nama}} {{$detail->opsiSkuId !=0 ? '('.$detail->opsisku["opsi1"].($detail->opsisku["opsi2"] != '' ? ' / '.$detail->opsisku["opsi2"]:'').($detail->opsisku["opsi3"] !='' ? ' / '.$detail->opsisku["opsi3"]:'').')':''}} - {{$detail->qty}} pcs
+                                                        <li>
+                                                            {{$detail->produk['nama']}} {{$detail->opsiSkuId != 0 ? '('.$detail->opsisku["opsi1"].($detail->opsisku["opsi2"] != '' ? ' / '.$detail->opsisku["opsi2"]:'').($detail->opsisku["opsi3"] !='' ? ' / '.$detail->opsisku["opsi3"]:'').')':''}} - {{$detail->qty}} pcs
                                                         </li>
-    		                                            @endforeach
+                                                        @endforeach
                                                     @endif
-		                                        </ul>
-		                                    </td>
-		                                    <td>{{ jadiRupiah($item->total)}}</td>
-		                                    <td>{{ $item->noResi}}</td>
-		                                    <td>
-		                                        @if($pengaturan->checkoutType==1) 
+                                                </ul>
+                                            </td>
+                                            <td>{{ price($item->total)}}</td>
+                                            <td>{{ $item->noResi}}</td>
+                                            <td>
+                                                @if($pengaturan->checkoutType==1) 
                                                     @if($item->status==0)
                                                         <span class="label label-warning">Pending</span>
                                                     @elseif($item->status==1)
@@ -127,73 +125,73 @@
                                                         <span class="label label-info">Konfirmasi Pelunasan diterima</span>
                                                     @endif
                                                 @endif
-		                                    </td>
-		                                    <td>
-		                                        @if ($pengaturan->checkoutType==3) 
+                                            </td>
+                                            <td>
+                                                @if ($pengaturan->checkoutType==3) 
                                                     @if($item->status<4)
-                                                        <a href="{{URL::to('konfirmasipreorder/'.$item->id)}}" class="btn btn-success">Konfirmasi Pembayaran</a>
+                                                        <a href="{{url('konfirmasipreorder/'.$item->id)}}" class="btn btn-success">Konfirmasi Pembayaran</a>
                                                     @endif 
                                                 @endif
                                                 @if($pengaturan->checkoutType==1) 
                                                     @if($item->status<=1)
-                                                        <a href="{{URL::to('konfirmasiorder/'.$item->id)}}" class="btn btn-success">Konfirmasi Pembayaran</a>
+                                                        <a href="{{url('konfirmasiorder/'.$item->id)}}" class="btn btn-success">Konfirmasi Pembayaran</a>
                                                     @endif
                                                 @endif
-		                                    </td>
-		                                </tr>
+                                            </td>
+                                        </tr>
 
-		                                @endforeach
-		                            </tbody>
-		                        </table>
-		                        {{$order->links()}} 
-	                        @else
-		                        <center>
-		                            <h4>Daftar order anda masih kosong.</h4>
-		                        </center>
-	                        @endif 
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                                {{list_order(10)->links()}} 
+                            @else
+                                <center>
+                                    <h4>Daftar order anda masih kosong.</h4>
+                                </center>
+                            @endif 
 
                         @else 
-                        	@if($inquiry->count()!=0)
-                        		<table class="table table-bordered">
-		                            <thead>
-		                                <tr>
-		                                    <td width="15%">ID Order</td>
-		                                    <td width="15%">Tanggal Order</td>
-		                                    <td width="30%">Detail Order</td>
-		                                    <td width="5%">Status</td>
-		                                </tr>
-		                            </thead>
-		                            <tbody>
-		                                @foreach ($inquiry as $item)
-		                                
+                            @if($inquiry->count()!=0)
+                                <table class="table table-bordered">
+                                    <thead>
                                         <tr>
-		                                    <td>
-		                                        {{prefixOrder()}}{{$item->kodeInquiry}}
-		                                    </td>
-		                                    <td>
-		                                        {{waktu($item->created_at)}}
-		                                    </td>
-		                                    <td>
-		                                        @foreach ($item->detailInquiry as $detail)
-		                                        
+                                            <td width="15%">ID Order</td>
+                                            <td width="15%">Tanggal Order</td>
+                                            <td width="30%">Detail Order</td>
+                                            <td width="5%">Status</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($inquiry as $item)
+                                        
+                                        <tr>
+                                            <td>
+                                                {{prefixOrder()}}{{$item->kodeInquiry}}
+                                            </td>
+                                            <td>
+                                                {{waktu($item->created_at)}}
+                                            </td>
+                                            <td>
+                                                @foreach ($item->detailInquiry as $detail)
+                                                
                                                 <li>
-                                                    {{$detail->produk->nama}} {{$detail->opsiSkuId !=0 ? '('.$detail->opsisku["opsi1"].($detail->opsisku["opsi2"] != '' ? ' / '.$detail->opsisku["opsi2"]:'').($detail->opsisku["opsi3"] !='' ? ' / '.$detail->opsisku["opsi3"]:'').')':''}} - {{$detail->qty}}
+                                                    {{$detail->produk['nama']}} {{$detail->opsiSkuId !=0 ? '('.$detail->opsisku["opsi1"].($detail->opsisku["opsi2"] != '' ? ' / '.$detail->opsisku["opsi2"]:'').($detail->opsisku["opsi3"] !='' ? ' / '.$detail->opsisku["opsi3"]:'').')':''}} - {{$detail->qty}}
                                                 </li>
-		                                        
+                                                
                                                 @endforeach
-		                                    </td>
-		                                    <td>
-		                                        @if($item->status==0)
-		                                          <span class="label label-warning">Pending</span>
-		                                        @elseif($item->status==1)
-		                                          <span class="label label-success">Inquiry diterima</span>
-		                                        @elseif($item->status==2)
-		                                          <span class="label label-info">Batal</span>
-		                                        @endif
-		                                    </td>
-		                                </tr>
+                                            </td>
+                                            <td>
+                                                @if($item->status==0)
+                                                  <span class="label label-warning">Pending</span>
+                                                @elseif($item->status==1)
+                                                  <span class="label label-success">Inquiry diterima</span>
+                                                @elseif($item->status==2)
+                                                  <span class="label label-info">Batal</span>
+                                                @endif
+                                            </td>
+                                        </tr>
 
-		                                @endforeach
+                                        @endforeach
                                     </tbody>
                             @else
                                 <tr>
@@ -279,6 +277,11 @@
                         </div>
                     </div>
                 </div>
+                <script>
+                    $(function () {
+                        $('#myTab a:first').tab('show');
+                    })
+                </script>
             </div>
         </div>
     </section>

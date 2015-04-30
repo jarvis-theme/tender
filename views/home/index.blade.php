@@ -10,7 +10,7 @@
                 <div class="tab-content row">
 
                     <!-- Feat tab -->
-                    @foreach($produk as $key=>$myproduk)
+                    @foreach(list_product() as $key=>$myproduk)
 
                     <div class="tab-pane active" id="feat">
                         <article style="height: 330px;" class="span4">
@@ -19,16 +19,15 @@
                             {{is_outstok($myproduk)}}
 
                             <div class="view view-thumb">
-                                <img style="margin:auto; max-height:250px;" src="{{URL::to(getPrefixDomain().'/produk/'.$myproduk->gambar1)}}" alt="" />
-                                {{--HTML::image('upload/produk/'.$myproduk->gambar1)--}}
+                                {{HTML::image(product_image_url($myproduk->gambar1),'produk',array('style'=>'margin:auto; max-height:250px;'))}}
                                 <div class="mask">
-                                    <h2>{{jadiRupiah($myproduk->hargaJual,$matauang)}}</h2>
-                                    <p>{{shortDescription($myproduk->deskripsi,100)}}</p>
-                                    <a href="{{slugProduk($myproduk)}}" class="info">Beli</a>
+                                    <h2>{{price($myproduk->hargaJual,$matauang)}}</h2>
+                                    <p>{{short_description($myproduk->deskripsi,100)}}</p>
+                                    <a href="{{product_url($myproduk)}}" class="info">Beli</a>
                                 </div>
                             </div>
 
-                            <p class="product-title"><a href="{{slugProduk($myproduk)}}">{{shortDescription($myproduk->nama, 20)}}</a></p>
+                            <p class="product-title"><a href="{{product_url($myproduk)}}">{{short_description($myproduk->nama, 20)}}</a></p>
                         </article>
                     </div>
 
@@ -37,5 +36,4 @@
             </div>
         </div>
     </section>
-
 </div>

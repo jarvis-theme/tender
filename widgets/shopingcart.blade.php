@@ -1,6 +1,6 @@
 					<!-- Cart Updates -->
 					<div class="counter">
-						<a href="javascript:void(0);"><i class="icon-basket"></i> Your cart  : <span style="font-size: .9em;" class="theme pull-right">{{ jadiRupiah(Shpcart::cart()->total() )}}</span></a>
+						<a href="javascript:void(0);"><i class="icon-basket"></i> Your cart  : <span style="font-size: .9em;" class="theme pull-right">{{ price(Shpcart::cart()->total() )}}</span></a>
 					</div>
 
 					<!-- Bubble Cart Item -->
@@ -11,14 +11,14 @@
 							@foreach (Shpcart::cart()->contents() as $key => $cart)
 
 							<div class="clearfix">
-								<a href="#">{{$cart['name']}}</a> <span class="theme pull-right">{{ jadiRupiah($cart['qty'] * $cart['price'])}}</span>
+								<a href="#">{{$cart['name']}}</a> <span class="theme pull-right">{{ price($cart['qty'] * $cart['price'])}}</span>
 							</div>
 
 							@endforeach
 
 							<!-- Total -->
 							<div class="clearfix">
-								TOTAL <span class="theme pull-right">{{ jadiRupiah(Shpcart::cart()->total() )}}</span>
+								TOTAL <span class="theme pull-right">{{ price(Shpcart::cart()->total() )}}</span>
 							</div>
 							<hr />
 							<div class="clearfix">

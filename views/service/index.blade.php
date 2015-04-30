@@ -14,15 +14,15 @@
 			<div class="row-fluid">
 				<div class="span12">
 					<h4>Kebijakan Layanan</h4>
-					{{$service->refund}}
+					{{$service->tos}}
 					<hr>
 					
 					<h4>Kebijakan Pengembalian</h4>
-					{{$service->privacy}}
+					{{$service->refund}}
 					<hr>
 
 					<h4>Kebijakan Privasi</h4>
-					{{$service->tos}}
+					{{$service->privacy}}
 				</div>
 			</div>
 		</div>

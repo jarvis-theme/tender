@@ -18,13 +18,13 @@
 				<div class=" form-horizontal" >
 					<table class="table table-bordered" >
 		                <tr>
-		                    <th align="center"  >Kode Order</th>
-		                    <th align="center" >Tanggal Order</th>
-		                    <th  align="center" class="hidden-phone" >Order</th>
-		                    <th  align="center" class="hidden-phone">Jumlah</th>
-		                    <th  align="center" >Jumlah yg belum di bayar</th>
-		                    <th  align="center" >No Resi</th>
-		                    <th  align="center" >Status</th>
+		                    <th align="center">Kode Order</th>
+		                    <th align="center">Tanggal Order</th>
+		                    <th align="center" class="hidden-phone">Order</th>
+		                    <th align="center" class="hidden-phone">Jumlah</th>
+		                    <th align="center">Jumlah yg belum di bayar</th>
+		                    <th align="center">No Resi</th>
+		                    <th align="center">Status</th>
 		                </tr>
 		                <tr>
 		                    <td>
@@ -43,15 +43,15 @@
 							</td>
 		                    <td class="hidden-phone">
 		                    	<ul>
-									@if ($checkouttype==1)
-										@foreach ($order->detailorder as $detail)
-											<li>{{$detail->produk->nama}} {{$detail->opsiSkuId !=0 ? '('.$detail->opsisku->opsi1.($detail->opsisku->opsi2 != '' ? ' / '.$detail->opsisku->opsi2:'').($detail->opsisku->opsi3 !='' ? ' / '.$detail->opsisku->opsi3:'').')':''}} - {{$detail->qty}}</li>
-										@endforeach
-									@else
-										{{$order->preorderdata->produk->nama}} 
-										({{$order->opsiSkuId==0 ? 'No Opsi' : $order->opsisku->opsi1.($order->opsisku->opsi2!='' ? ' / '.$order->opsisku->opsi2:'').($order->opsisku->opsi3!='' ? ' / '.$order->opsisku->opsi3:'')}})
-									 	- {{$order->jumlah}}
-									@endif
+								@if ($checkouttype==1)
+									@foreach ($order->detailorder as $detail)
+										<li>{{$detail->produk->nama}} {{$detail->opsiSkuId !=0 ? '('.$detail->opsisku['opsi1'].($detail->opsisku['opsi2'] != '' ? ' / '.$detail->opsisku['opsi2'] : '').($detail->opsisku['opsi3'] != '' ? ' / '.$detail->opsisku['opsi3'] : '').')':''}} - {{$detail->qty}}</li>
+									@endforeach
+								@else
+									{{$order->preorderdata->produk->nama}} 
+									({{$order->opsiSkuId==0 ? 'No Opsi' : $order->opsisku['opsi1'].($order->opsisku['opsi2'] != '' ? ' / '.$order->opsisku['opsi2'] : '').($order->opsisku['opsi3'] != '' ? ' / '.$order->opsisku['opsi3'] : '')}})
+								 	- {{$order->jumlah}}
+								@endif
 								</ul>
 		                	</td>
 		                	<td class="hidden-phone">
@@ -204,7 +204,7 @@
 		            	@elseif($order->jenisPembayaran==4)	
 			            	@if(($checkouttype==1 && $order->status < 2) || ($checkouttype==3 && ($order->status!=6)))		
 			            		<p>Jika anda belum melakukan pembayaran via iPaymu, klik tombol bayar dibawah ini</p><br/>										  
-			            		<a class="btn btn-info" href="{{URL::to('ipaymu/'.$order->id)}}" target="_blank">Bayar dengan iPaymu</a>
+			            		<a class="btn btn-info" href="{{url('ipaymu/'.$order->id)}}" target="_blank">Bayar dengan iPaymu</a>
 			            	@endif									
 		            	@endif	
 		            </div>				           
