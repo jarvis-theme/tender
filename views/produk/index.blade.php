@@ -17,9 +17,7 @@
 						<h5>Kategori</h5>
 						<nav>
 							<ul>
-								{{
-									generateKategori($kategori,'<li>;</li>','<i class="icon-right-open"></i>',';',true)
-								}}
+								{{generateKategori($kategori,'<li>;</li>','<i class="icon-right-open"></i>',';',true)}}
 							</ul>
 						</nav>
 					</section>
@@ -30,7 +28,7 @@
 						<a href="{{product_url($item)}}">
 							<article class="clearfix">
 								<div class="thumb visible-desktop">
-									{{HTML::image(product_image_url($item->gambar1,'thumb'))}}
+									{{HTML::image(url(product_image_url($item->gambar1,'thumb')))}}
 								</div>
 								<div class="info">
 									{{short_description($item->nama, 32)}}<br>
@@ -45,7 +43,7 @@
 					@foreach(vertical_banner() as $item)	
                     	<div>
                     		<a href="{{url($item->url)}}">
-                				{{HTML::image(banner_image_url($item->gambar))}}
+                				{{HTML::image(url(banner_image_url($item->gambar)))}}
                 			</a>
             			</div>
                     @endforeach	
@@ -72,7 +70,7 @@
 								{{is_produkbaru($myproduk)}}
 								{{is_outstok($myproduk)}}
 								<div class="view view-thumb">
-									{{HTML::image(product_image_url($myproduk->gambar1), $myproduk->nama, array('class'=>'img1'))}}
+									{{HTML::image(url(product_image_url($myproduk->gambar1,'medium')), $myproduk->nama, array('class'=>'img1'))}}
 									<div class="mask">
 										<h2>{{price($myproduk->hargaJual)}}</h2>
 							            <p>{{short_description($myproduk->deskripsi,100)}}</p>

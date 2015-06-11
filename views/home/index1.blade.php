@@ -18,7 +18,7 @@
                         @foreach(vertical_banner() as $item)
                         <div>
                             <a href="{{$item->url}}">
-                                <img src="{{banner_image_url($item->gambar)}}" />
+                                <img src="{{url(banner_image_url($item->gambar))}}" />
                             </a>
                         </div>
                         @endforeach
@@ -93,7 +93,7 @@
                             {{is_produkbaru($myproduk)}}
                             {{is_outstok($myproduk)}}
                             <div class="view view-thumb">
-                                <img style="margin:auto;" src="{{product_image_url($myproduk->gambar1)}}" class="img1" />
+                                <img style="margin:auto;" src="{{URL::to(product_image_url($myproduk->gambar1,'medium'))}}" class="img1" alt="{{$myproduk->nama}}" />
                                 <div class="mask">
                                     <h2>{{price($myproduk->hargaJual,$matauang)}}</h2>
                                     <p>{{short_description($myproduk->deskripsi,100)}}</p>

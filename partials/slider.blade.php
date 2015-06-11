@@ -5,7 +5,7 @@
 			    	<!-- Sample slider with text caption -->
 			    	@foreach(slideshow() as $slider)
 				    <li>
-						<img src="{{slide_image_url($slider->gambar)}}" alt="" />
+						<img src="{{url(slide_image_url($slider->gambar))}}" alt="" />
 						<!--  <p class="flex-caption">
 						  <strong>CAPTION</strong><br />
 						  Put any caption, description or anything here.<br /><br />

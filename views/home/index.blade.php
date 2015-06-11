@@ -19,7 +19,7 @@
                             {{is_outstok($myproduk)}}
 
                             <div class="view view-thumb">
-                                {{HTML::image(product_image_url($myproduk->gambar1),'produk',array('style'=>'margin:auto; max-height:250px;'))}}
+                                <img style="margin:auto; max-height:250px;" src="{{URL::to(product_image_url($myproduk->gambar1,'medium'))}}" alt="{{$myproduk->nama}}">
                                 <div class="mask">
                                     <h2>{{price($myproduk->hargaJual,$matauang)}}</h2>
                                     <p>{{short_description($myproduk->deskripsi,100)}}</p>

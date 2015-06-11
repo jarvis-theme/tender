@@ -13,16 +13,16 @@
 					<div id="flexslider-product" class="flexslider">
 						<ul class="slides">
 					    @if($produk->gambar1!='')	
-					    	<li><a href="{{product_image_url($produk->gambar1)}}"> {{HTML::image(product_image_url($produk->gambar1))}}</a></li>
+					    	<li><a href="{{product_image_url($produk->gambar1,'large')}}"> {{HTML::image(url(product_image_url($produk->gambar1,'medium')))}}</a></li>
 					  	@endif
 					  	@if($produk->gambar2!='')	
-						    <li><a href="{{product_image_url($produk->gambar2)}}"> {{HTML::image(product_image_url($produk->gambar2))}}</a></li>
+						    <li><a href="{{product_image_url($produk->gambar2,'large')}}"> {{HTML::image(url(product_image_url($produk->gambar2,'medium')))}}</a></li>
 					  	@endif
 					  	@if($produk->gambar3!='')			  	
-						    <li><a href="{{product_image_url($produk->gambar3)}}"> {{HTML::image(product_image_url($produk->gambar3))}}</a></li>
+						    <li><a href="{{product_image_url($produk->gambar3,'large')}}"> {{HTML::image(url(product_image_url($produk->gambar3,'medium')))}}</a></li>
 					  	@endif
 					  	@if($produk->gambar4!='')			  	
-						    <li><a href="{{product_image_url($produk->gambar4)}}"> {{HTML::image(product_image_url($produk->gambar4))}}</a></li>
+						    <li><a href="{{product_image_url($produk->gambar4,'large')}}"> {{HTML::image(url(product_image_url($produk->gambar4,'medium')))}}</a></li>
 					  	@endif  
 						</ul>	  
 					</div>
@@ -30,16 +30,16 @@
 					<div id="flexcarousel-product" class="flexslider visible-desktop">
 						<ul class="slides">
 						@if($produk->gambar1!='')			  	
-						    <li>{{HTML::image(product_image_url($produk->gambar1,'thumb'))}}</li>
+						    <li>{{HTML::image(url(product_image_url($produk->gambar1,'thumb')))}}</li>
 					  	@endif
 					  	@if($produk->gambar2!='')			  	
-					    	<li>{{HTML::image(product_image_url($produk->gambar2,'thumb'))}}</li>
+					    	<li>{{HTML::image(url(product_image_url($produk->gambar2,'thumb')))}}</li>
 					  	@endif
 					  	@if($produk->gambar3!='')			  	
-					    	<li>{{HTML::image(product_image_url($produk->gambar3,'thumb'))}}</li>
+					    	<li>{{HTML::image(url(product_image_url($produk->gambar3,'thumb')))}}</li>
 					  	@endif
 					  	@if($produk->gambar4!='')			  	
-					    	<li>{{HTML::image(product_image_url($produk->gambar4,'thumb'))}}</li>
+					    	<li>{{HTML::image(url(product_image_url($produk->gambar4,'thumb')))}}</li>
 					  	@endif  
 						</ul>
 					</div>
@@ -215,14 +215,14 @@
 						<hr />
 						<header>Produk yang mungkin anda suka</header>
 						<section class="row-fluid cross-product">
-						@foreach($produklain as $myproduk)	
+						@foreach(other_product($produk) as $myproduk)	
 							<article class="span3" style="position: relative;">
 								{{is_terlaris($myproduk)}} 
 		            			{{is_produkbaru($myproduk)}} 
 		            			{{is_outstok($myproduk)}} 
 
 								<div style="height: 220px;" class="view view-thumb">
-									{{HTML::image(product_image_url($myproduk->gambar1, $myproduk->nama))}}
+									{{HTML::image(url(product_image_url($myproduk->gambar1,'medium')), $myproduk->nama)}}
 									<div class="mask">
 										<h2>{{price($myproduk->hargaJual)}}</h2>
 							            <p>{{short_description($myproduk->deskripsi,100)}}</p>
