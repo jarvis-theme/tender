@@ -9,6 +9,8 @@
 	{{generate_theme_css('tender/assets/css/editstyle.css')}}	
 @endif
 
+{{favicon()}}	
+
 <!-- Other -->
 <script type="text/javascript">
 	// Add Google Font name here
@@ -29,4 +31,3 @@
 	.wf-active {font-family: 'Lato',serif; font-size: 14px;}
 	.wf-active .logo {font-family: 'Bangers', serif;}
 </style>
-{{createFavicon($toko)}}

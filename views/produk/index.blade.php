@@ -1,34 +1,29 @@
 <div class="container">
-	
-	<!-- ================ -->
-	<!-- Products section -->
-	<!-- ================ -->
 	<section class="product">
 		<div class="row">
-			<header class="span12 prime">
-				<h3>{{$name}}</h3>
-			</header>
+			<header class="span12 prime"><h3>{{$name}}</h3></header>
 		</div>
 
 		<div class="row">
 			<div class="span3 hidden-phone">
 				<div class="sidebar">
+					@if(count(list_category()) > 0)
 					<section>
 						<h5>Kategori</h5>
 						<nav>
 							<ul>
-								{{generateKategori($kategori,'<li>;</li>','<i class="icon-right-open"></i>',';',true)}}
+								{{generateKategori(list_category(),'<li>;</li>','<i class="icon-right-open"></i>',';',true)}}
 							</ul>
 						</nav>
 					</section>
-
+					@endif
 					<section>
 						<h5>Best Seller</h5>
 						@foreach (best_seller() as $item)
 						<a href="{{product_url($item)}}">
 							<article class="clearfix">
 								<div class="thumb visible-desktop">
-									{{HTML::image(url(product_image_url($item->gambar1,'thumb')))}}
+									{{HTML::image(url(product_image_url($item->gambar1,'thumb')),$item->nama)}}
 								</div>
 								<div class="info">
 									{{short_description($item->nama, 32)}}<br>
@@ -40,13 +35,13 @@
 					</section>
 
 					<section>
-					@foreach(vertical_banner() as $item)	
+						@foreach(vertical_banner() as $item)	
                     	<div>
                     		<a href="{{url($item->url)}}">
-                				{{HTML::image(url(banner_image_url($item->gambar)))}}
+                    			{{HTML::image(url(banner_image_url($item->gambar)),'Info Promo')}}
                 			</a>
             			</div>
-                    @endforeach	
+                    	@endforeach	
 					</section>
 				</div>
 			</div>
@@ -54,21 +49,24 @@
 			<div class="span9">
 				<div class="row-fluid">
                 	@foreach(horizontal_banner() as $item)
-                	<div style="width: 99%;margin: 0 auto;margin-bottom: 15px;">
+                	<div id="horizontal-banner">
                 		<a href="{{url($item->url)}}">
-                			{{HTML::image(banner_image_url($item->gambar))}}
+                			{{HTML::image(banner_image_url($item->gambar),'Info Promo')}}
             			</a>
         			</div>
                 	@endforeach
-					
-					@if(count(list_product(9,@$category)) > 0)
-						<!-- Collection -->
+
+					@if(count(list_product(null,@$category)) > 0)
 						<div class="tab-content sideline">
-						@foreach(list_product(9,@$category) as $myproduk)
-							<article style="height: 262px; position: relative;">
-								{{is_terlaris($myproduk)}}
-								{{is_produkbaru($myproduk)}}
+						@foreach(list_product(null,@$category) as $myproduk)
+							<article id="list-produk">
+								@if(is_outstok($myproduk))
 								{{is_outstok($myproduk)}}
+								@elseif(is_terlaris($myproduk))
+								{{is_terlaris($myproduk)}}
+								@elseif(is_produkbaru($myproduk))
+								{{is_produkbaru($myproduk)}}
+								@endif
 								<div class="view view-thumb">
 									{{HTML::image(url(product_image_url($myproduk->gambar1,'medium')), $myproduk->nama, array('class'=>'img1'))}}
 									<div class="mask">
@@ -83,16 +81,12 @@
 							</article>
 						@endforeach
 						</div>
-						{{list_product(9,@$category)->links()}}
-						<!-- Collections end -->
+						{{list_product(null,@$category)->links()}}
 					@else
-						<article class="text-center">
-	                        <i>Produk tidak ditemukan</i>
-	                    </article>
+						<article class="text-center"><i>Produk tidak ditemukan</i></article>
                     @endif
 				</div>
 			</div>
 		</div>
 	</section>
-
 </div>

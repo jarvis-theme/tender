@@ -1,39 +1,11 @@
 <div class="container">
-
-	<!-- Checkout Page -->
 	<section class="order">
-		@if($errors->all())
-
-		<div class="alert alert-error">
-			Kami menemukan error berikut:			
-			<ul>
-			    @foreach($errors->all() as $message)
-			    
-			    <li>{{ $message }}</li>
-
-			    @endforeach
-			</ul>
-		</div>
-
-		@endif
-		@if(Session::has('error'))
-
-			<div class="alert alert-error">
-				<h3>Kami menemukan error berikut:</h3>
-				<p>{{Session::get('error')}}</p>
-			</div>
-
-		@endif
-
 		<div class="row standard">
-			<header class="span12 prime">
-				<h3>Registrasi</h3>
-			</header>
+			<header class="span12 prime"><h3>Registrasi</h3></header>
 		</div>
 
 		<div class="row cart">
 			<div class="span12">
-
 				{{Form::open(array('url'=>'member','method'=>'post','class'=>'form-horizontal'))}}
 					<div class="control-group">
 						<label class="control-label" for="inputEmail"> Nama*</label>
@@ -73,14 +45,14 @@
 					<div class="control-group">
 						<label class="control-label" for="inputEmail"> Negara*</label>
 						<div class="controls" >
-						  	{{Form::select('negara',array('' => '-- Pilih Negara --') + $negara,Input::old(''),array('required', 'id="negara" data-rel="chosen"'))}}
+						  	{{Form::select('negara',array('' => '-- Pilih Negara --') + $negara,Input::old(''),array('required', 'id'=>"negara", 'data-rel'=>"chosen"))}}
 						</div>
 					</div>
 
 					<div class="control-group">
 						<label class="control-label" for="inputEmail"> Provinsi*</label>
 						<div class="controls" id="provinsiPlace">
-						  	{{Form::select('provinsi',array('' => '-- Pilih Provinsi --'), Input::old("provinsi"),array('required', 'id="provinsi" data-rel="chosen"'))}}
+						  	{{Form::select('provinsi',array('' => '-- Pilih Provinsi --'), Input::old("provinsi"),array('required', 'id'=>"provinsi", 'data-rel'=>"chosen"))}}
 						</div>
 					</div>
 
@@ -126,7 +98,6 @@
 						</div>
 					</div>
 				{{Form::close()}}
-
 			</div>
 		</div>
 	</section>

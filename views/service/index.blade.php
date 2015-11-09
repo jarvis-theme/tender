@@ -1,13 +1,7 @@
 <div class="container">
-
-	<!-- ============= -->
-	<!-- Page template -->
-	<!-- ============= -->
 	<section class="page">
 		<div class="row">
-			<header class="span12 prime">
-				<h3>Layanan Pelanggan</h3>
-			</header>
+			<header class="span12 prime"><h3>Layanan Pelanggan</h3></header>
 		</div>
 
 		<div class="wrap">
@@ -27,5 +21,4 @@
 			</div>
 		</div>
 	</section>
-
 </div>

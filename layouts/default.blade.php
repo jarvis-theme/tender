@@ -1,21 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        {{ Theme::partial('seostuff') }}
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-        <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
-        {{ Theme::partial('defaultcss') }}
-        {{ Theme::asset()->styles() }}
+        {{ Theme::partial('seostuff') }}    
+        {{ Theme::partial('defaultcss') }}  
+        {{ Theme::asset()->styles() }}  
+        <style type="text/css">#tag-category{padding-left: 5px}</style>
     </head>
     <body>
-        {{ Theme::partial('header') }}
+        {{ Theme::partial('header') }}  
         <div class="container">
-            {{ Theme::place('content') }}
+            {{ Theme::place('content') }}   
         </div>
-        {{ Theme::partial('footer') }}
-        {{ Theme::partial('defaultjs') }}
-        {{ Theme::asset()->scripts() }}
-        {{ Theme::asset()->container('footer')->scripts() }}
+        {{ Theme::partial('footer') }}  
+        {{ Theme::partial('defaultjs') }}   
     </body>
     {{ Theme::partial('analytic') }}
 </html>

@@ -1,37 +1,12 @@
-@if(Session::has('msg2'))
-<div class="success" id='message' style='display:none'>
-    Terima kasih, pesan anda sudah terkirim.
-</div>
-@endif
-
-@if(Session::has('msg3'))
-<div class="success" id='message' style='display:none'>
-    Maaf, pesan anda belum terkirim.
-</div>
-@endif
-
-@if($errors->all())
-<div class="error" id='message' style='display:none'>
-    Terjadi kesalahan dalam menyimpan data.<br><br>
-
-    @foreach($errors->all() as $message)
-    -{{ $message }}<br>
-    @endforeach
-</div>
-@endif
-
 <div class="container">
-	<!-- ============ -->
-	<!-- Contact page -->
-	<!-- ============ -->
 	<section class="page">
 		<div class="row">
 			<div class="span12">
 				<!-- Replace data-center with your address -->
-				@if($kontak->lat=='0' || $kontak->lat=='0')
-					<div class="gmap" id="map" data-center="{{ $kontak->alamat }}" data-zoom="15"></div>
+				@if($kontak->lat=='0' || $kontak->lng=='0')
+    			<iframe width="100%" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q={{str_replace(' ','+',$kontak->alamat)}}&amp;aq=0&amp;oq={{str_replace(' ','+',$kontak->alamat)}}&amp;sspn={{ $kontak->lat.','.$kontak->lng }}&amp;ie=UTF8&amp;hq=&amp;hnear={{ $kontak->alamat }}&amp;t=m&amp;z=14&amp;iwloc=A&amp;output=embed"></iframe><br />
 				@else
-					<div class="gmap" id="map" data-center="{{ $kontak->lat.','.$kontak->lng }}" data-zoom="15"></div>
+    			<iframe width="100%" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q={{ $kontak->lat.','.$kontak->lng }}&amp;aq=&amp;sll={{ $kontak->lat.','.$kontak->lng }}&amp;sspn={{ $kontak->lat.','.$kontak->lng }}&amp;ie=UTF8&amp;t=m&amp;z=14&amp;output=embed"></iframe><br />
 				@endif
 			</div>
 		</div>
@@ -55,8 +30,8 @@
 				<div class="row-fluid">
 					<form action="{{url('kontak')}}" class="wrap contactform" method="post">
 						<div class="span6">
-							<label for="inputEmail">Name</label>
-							<input type="text" id="inputEmail" placeholder="Name" class="input-medium" name='namaKontak' required>
+							<label for="inputEmail">Nama</label>
+							<input type="text" id="inputEmail" placeholder="Nama" class="input-medium" name='namaKontak' required>
 						</div>
 
 						<div class="span6">
@@ -71,7 +46,7 @@
 
 						<div class="row-fluid">
 							<div class="span12">
-								<label for="inputPassword">Message</label>
+								<label for="inputPassword">Pesan</label>
 								<textarea rows="5" name="messageKontak" required></textarea>
 							</div>
 							<p><input type="submit" class="btn" value="Kirim"/></p>

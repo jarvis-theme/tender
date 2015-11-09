@@ -1,6 +1,3 @@
-<!-- ============== -->
-<!-- Footer section -->
-<!-- ============== -->
 <footer>
 	<div class="container">
 		<section class="row foot">
@@ -12,19 +9,7 @@
 						@foreach($quickLink as $key=>$link)
 				            @if($group->id==$link->tautanId)
 							<li>
-								@if($link->halaman=='1')
-									@if($link->linkTo == 'halaman/about-us')
-									<a href={{"'".url(strtolower($link->linkTo))."'"}}>{{$link->nama}}</a>
-									@else
-									<a href={{"'".url("halaman/".strtolower($link->linkTo))."'"}}>{{$link->nama}}</a>
-									@endif
-								@elseif($link->halaman=='2')
-									<a href={{"'".url("blog/".strtolower($link->linkTo))."'"}}>{{$link->nama}}</a>
-								@elseif($link->url=='1')
-									<a href="http://{{strtolower($link->linkTo)}}">{{$link->nama}}</a>
-								@else
-									<a href={{"'".url(strtolower($link->linkTo))."'"}}>{{$link->nama}}</a>
-								@endif
+								<a href='{{menu_url($link)}}'>{{$link->nama}}</a>
 							</li>
 							@endif
 						@endforeach
@@ -36,7 +21,7 @@
 			<article class="span3">
 				<strong>Posting Terbaru</strong>
 				<ul>
-					@foreach (recentBlog() as $items)
+					@foreach (list_blog() as $items)
 						<li><a href="{{blog_url($items)}}">{{$items->judul}}</a><br /><small>diposting pada {{waktuTgl($items->created_at)}}</small></li>
 					@endforeach
 				</ul>
@@ -45,14 +30,14 @@
 				<strong>Newsletter</strong>
 				<div id="mc_embed_signup">
 					<form action="{{@$mailing->action}}" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form newsletter" class="validate form-inline" target="_blank" novalidate>
-                    	<input type="email" value="" placeholder="Enter your email" name="EMAIL" class="input-medium required email" id="newsletter mce-EMAIL">
+                    	<input type="email" placeholder="Email anda" name="EMAIL" class="input-medium required email" id="newsletter mce-EMAIL" required {{@$mailing->action==''?'disabled style="cursor:default"':''}}>
 						<button type="submit" class="btn" {{ @$mailing->action==''?'disabled="disabled"':'' }}><i class="icon-direction"></i></button>
 					</form>
 				</div>
 				@if($kontak->alamat!='')
 					<address class="row-fluid">
 						<div class="pull-left clabel"><i class="icon-location"></i></div>
-						<div class="pull-left cdata">{{$kontak->alamat}}, {{$kota->nama}}</div>
+						<div class="pull-left cdata">{{$kontak->alamat}}</div>
 					</address>
 					<address class="row-fluid">
 						<div class="pull-left clabel"><i class="icon-phone"></i></div>
@@ -83,18 +68,21 @@
 	</div>
 	<section class="row-fluid doubleline">
 		<div class="container">
-			<div class="span6">
+			<div class="span12">
 				@foreach(list_banks() as $value)
 					<img src="{{bank_logo($value)}}" />
 				@endforeach
 				@foreach(list_payments() as $pay)
-					@if($pay->nama == 'ipaymu' && $pay->aktif == 1)
-					<img src="{{url('img/bank/ipaymu.jpg')}}" alt="ipaymu" />
-					@endif
-				@endforeach
-				@if(count(list_dokus()) > 0 && list_dokus()->status == 1)
-				<img src="{{url('img/bank/doku.jpg')}}" alt="doku myshortcart" />
-				@endif
+                    @if($pay->nama == 'ipaymu' && $pay->aktif == 1)
+                    <img src="{{url('img/bank/ipaymu.jpg')}}" alt="ipaymu" title="payment" />
+                    @endif
+                    @if($pay->nama == 'bitcoin' && $pay->aktif == 1)
+                    <img src="{{url('img/bitcoin.png')}}" alt="bitcoin" title="Payment" />
+                    @endif
+                @endforeach
+                @if(count(list_dokus()) > 0 && list_dokus()->status == 1)
+                <img src="{{url('img/bank/doku.jpg')}}" alt="doku myshortcart" title="Payment" />
+                @endif
 			</div>
 		</div>
 	</section>
@@ -127,6 +115,5 @@
 			</div>
 		</div>
 	</section>
-	
 </footer>
 {{pluginPowerup()}}
