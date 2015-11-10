@@ -8,9 +8,7 @@
 					<ul>
 						@foreach($quickLink as $key=>$link)
 				            @if($group->id==$link->tautanId)
-							<li>
-								<a href='{{menu_url($link)}}'>{{$link->nama}}</a>
-							</li>
+							<li><a href='{{menu_url($link)}}'>{{$link->nama}}</a></li>
 							@endif
 						@endforeach
 					</ul>

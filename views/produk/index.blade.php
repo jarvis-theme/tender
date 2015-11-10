@@ -17,6 +17,7 @@
 						</nav>
 					</section>
 					@endif
+					@if(count(best_seller()) > 0)
 					<section>
 						<h5>Best Seller</h5>
 						@foreach (best_seller() as $item)
@@ -33,6 +34,7 @@
 						</a>
 						@endforeach								
 					</section>
+					@endif
 
 					<section>
 						@foreach(vertical_banner() as $item)	
@@ -56,9 +58,9 @@
         			</div>
                 	@endforeach
 
-					@if(count(list_product(null,@$category)) > 0)
+					@if(count(list_product(null,@$category,@$collection)) > 0)
 						<div class="tab-content sideline">
-						@foreach(list_product(null,@$category) as $myproduk)
+                        @foreach(list_product(null,@$category,@$collection) as $myproduk)
 							<article id="list-produk">
 								@if(is_outstok($myproduk))
 								{{is_outstok($myproduk)}}
@@ -81,7 +83,7 @@
 							</article>
 						@endforeach
 						</div>
-						{{list_product(null,@$category)->links()}}
+						{{list_product(null,@$category,@$collection)->links()}}
 					@else
 						<article class="text-center"><i>Produk tidak ditemukan</i></article>
                     @endif

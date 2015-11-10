@@ -666,7 +666,7 @@ div > .button:hover{background-color: #fff;}
 #list-produk{height: 262px; position: relative}
 #result-image{border: 0}
 .align-left, article.align-justify > div > span.align-left{text-align: left}
-.align-justify{text-align: justify}
+.align-justify{text-align: justify !important}
 .result{margin-left:1%}
 #noresult{text-align: center; border: 0}
 .title-testi{text-align: left; width:auto !important}
