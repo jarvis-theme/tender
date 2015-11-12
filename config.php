@@ -62,6 +62,6 @@ return array(
         'color'=>false
     ),
     'layout' => array(
-        'index1'=>'Layout dengan sidebar'
+        'index1'=>'Layout dengan sidebar '
     ),
 );
