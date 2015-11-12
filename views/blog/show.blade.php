@@ -53,10 +53,10 @@
                             @endforeach
                         </ul>
                     </aside>
-                    @if($tag != "")
+                    @if($detailblog->tags != "")
                     <aside class="clearfix tags">
                         <p class="title"><i class="icon-tag"></i> <strong>Tags</strong></p>
-                        {{ getTags('<span class="underline"></span>',$tag)}}
+                        {{ getTags('<span class="underline"></span>',$detailblog->tags)}}
                     </aside>
                     @endif
                 </div>
