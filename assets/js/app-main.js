@@ -59,8 +59,7 @@ require([
     'bootstrap',
     'menu',
     'cart',
-    'noty_util',
-], function(router,b,menu,cart,noty)
+], function(router,b,menu,cart)
 {
     // HOME
     router.define('/', 'home@run');
@@ -80,6 +79,5 @@ require([
     
     router.run();
     menu.run();
-    noty.run();
     cart.run();
 });
