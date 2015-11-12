@@ -1,15 +1,13 @@
 <footer>
 	<div class="container">
 		<section class="row foot">
-			@foreach($tautan as $key=>$group)
+			@foreach(all_menu() as $key=>$group)
             @if($key!=0)
 			<article class="span3">
 					<strong>{{$group->nama}}</strong>
 					<ul>
-						@foreach($quickLink as $key=>$link)
-				            @if($group->id==$link->tautanId)
+						@foreach($group->link as $key=>$link)
 							<li><a href='{{menu_url($link)}}'>{{$link->nama}}</a></li>
-							@endif
 						@endforeach
 					</ul>
 			</article>
