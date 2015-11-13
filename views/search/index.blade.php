@@ -49,7 +49,6 @@
 						<article id="noresult"><i>Hasil pencarian tidak ditemukan</i></article>
 					@endif
 				</div>
-				{{--$hasilCari->links()--}}
 			</div>
 		</div>
 	</section>

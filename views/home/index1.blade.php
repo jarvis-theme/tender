@@ -29,14 +29,14 @@
 
                         @if($shop->telepon)
                         <address class="row-fluid">
-                            <div class="pull-left clabel"><i class="icon-phone"></i><i class=""></i></div>
+                            <div class="pull-left clabel"><i class="icon-phone"></i></div>
                             <div class="pull-left cdata"> {{$shop->telepon}}</div>
                         </address>
                         @endif
 
                         @if($shop->hp)
                         <address class="row-fluid">
-                            <div class="pull-left clabel"><i class="icon-phone"></i><i class=""></i></div>
+                            <div class="pull-left clabel"><i class="icon-phone"></i></div>
                             <div class="pull-left cdata"> {{$shop->hp}}</div>
                         </address>
                         @endif
@@ -65,14 +65,14 @@
                         <h5>Testimonial</h5>
                         <span>
                             <ul>
-                                @foreach (list_testimonial(3) as $items)
+                                @foreach(list_testimonial(3) as $items)
                                 <li>
                                     <a href="#">{{$items->isi}}</a><br />
                                     <small>oleh <strong>{{$items->nama}}</strong></small>
                                 </li>
                                 @endforeach
                             </ul>
-                            <strong class="pull-right"><a href="{{url('testimoni')}}">More..</a></strong>
+                            <strong class="pull-right"><a href="{{url('testimoni')}}">Selengkapnya...</a></strong>
                         </span>
                     </section>
                 </div>
@@ -81,7 +81,7 @@
             <div class="span9">
                 <div class="row-fluid">
                     <div class="tab-content sideline">
-                    @foreach(list_product() as $key=>$myproduk)
+                    @foreach(home_product() as $key=>$myproduk)
                         <article id="home-product">
                             @if(is_outstok($myproduk))
                             {{is_outstok($myproduk)}}

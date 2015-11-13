@@ -4,7 +4,7 @@
             <div class="span12">
                 <h6 class="subhead"><strong>BARANG POPULER</strong></h6>
                 <div class="tab-content row">
-                    @foreach(list_product() as $key=>$myproduk)
+                    @foreach(home_product() as $key=>$myproduk)
                     <div class="tab-pane active" id="feat">
                         <article id="popular" class="span4">
                             @if(is_outstok($myproduk))
