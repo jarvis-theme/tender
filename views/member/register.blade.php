@@ -52,14 +52,14 @@
 					<div class="control-group">
 						<label class="control-label" for="inputEmail"> Provinsi*</label>
 						<div class="controls" id="provinsiPlace">
-						  	{{Form::select('provinsi',array('' => '-- Pilih Provinsi --'), Input::old("provinsi"),array('required', 'id'=>"provinsi", 'data-rel'=>"chosen"))}}
+						  	{{Form::select('provinsi',array('' => '-- Pilih Provinsi --') + $provinsi, Input::old("provinsi"),array('required', 'id'=>"provinsi", 'data-rel'=>"chosen"))}}
 						</div>
 					</div>
 
 					<div class="control-group">
 						<label class="control-label" for="inputEmail"> Kota*</label>
 						<div class="controls" id="kotaPlace">
-							{{Form::select('kota',array('' => '-- Pilih Kota --'),Input::old("kota"), array('required'=>'','id'=>'kota'))}}
+							{{Form::select('kota',array('' => '-- Pilih Kota --') + $kota ,Input::old("kota"), array('required'=>'','id'=>'kota'))}}
 						</div>
 					</div>
 
