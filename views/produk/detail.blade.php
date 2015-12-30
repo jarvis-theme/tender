@@ -178,8 +178,8 @@
                                 </a>
                             </div>
                     
-                            <div id="review-trustklik" id="review" class="accordion-body in collapse">
-                                <div class="accordion-inner">
+                            <div id="review" class="accordion-body in collapse">
+                                <div id="review-trustklik" class="accordion-inner">
                                     {{pluginTrustklik()}}
                                 </div>
                             </div>
