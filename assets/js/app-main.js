@@ -37,7 +37,7 @@ require.config({
         jquery          : '//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min',
         jquery_sharrre  : dirTema+'/assets/js/lib/jquery.sharrre',
         mobilegmap      : dirTema+'/assets/js/lib/jquery.mobilegmap',
-        googlemap       : 'http://maps.googleapis.com/maps/api/js?sensor=false',
+        googlemap       : '//maps.googleapis.com/maps/api/js?sensor=false',
         noty            : 'js/jquery.noty',
         noty_util       : 'js/utils/noty',
         select_nav      : dirTema+'/assets/js/lib/selectNav',
