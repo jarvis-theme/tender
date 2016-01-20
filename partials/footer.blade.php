@@ -4,12 +4,12 @@
 			@foreach(all_menu() as $key=>$group)
             @if($key!=0)
 			<article class="span3">
-					<strong>{{$group->nama}}</strong>
-					<ul>
-						@foreach($group->link as $key=>$link)
-							<li><a href='{{menu_url($link)}}'>{{$link->nama}}</a></li>
-						@endforeach
-					</ul>
+				<strong>{{$group->nama}}</strong>
+				<ul>
+					@foreach($group->link as $key=>$link)
+						<li><a href='{{menu_url($link)}}'>{{$link->nama}}</a></li>
+					@endforeach
+				</ul>
 			</article>
 			@endif
 			@endforeach
@@ -66,18 +66,21 @@
 		<div class="container">
 			<div class="span12">
 				@foreach(list_banks() as $value)
-					<img src="{{bank_logo($value)}}" />
+					<img src="{{bank_logo($value)}}" alt="{{$value->bankdefault->nama}}" title="{{$value->bankdefault->nama}}" />
 				@endforeach
 				@foreach(list_payments() as $pay)
+                    @if($pay->nama == 'paypal' && $pay->aktif == 1)
+                    <img class="img-responsive" src="{{url('img/bank/paypal.png')}}" alt="Paypal" title="Paypal" />
+                    @endif
                     @if($pay->nama == 'ipaymu' && $pay->aktif == 1)
-                    <img src="{{url('img/bank/ipaymu.jpg')}}" alt="ipaymu" title="payment" />
+                    <img src="{{url('img/bank/ipaymu.jpg')}}" alt="ipaymu" title="Ipaymu" />
                     @endif
                     @if($pay->nama == 'bitcoin' && $pay->aktif == 1)
-                    <img src="{{url('img/bitcoin.png')}}" alt="bitcoin" title="Payment" />
+                    <img src="{{url('img/bitcoin.png')}}" alt="bitcoin" title="Bitcoin" />
                     @endif
                 @endforeach
                 @if(count(list_dokus()) > 0 && list_dokus()->status == 1)
-                <img src="{{url('img/bank/doku.jpg')}}" alt="doku myshortcart" title="Payment" />
+                <img src="{{url('img/bank/doku.jpg')}}" alt="doku myshortcart" title="Doku" />
                 @endif
 			</div>
 		</div>
@@ -90,22 +93,22 @@
 			<div class="pull-right">
 				<ul>
 					@if($kontak->fb)
-						<li><a target="_blank" href="{{url($kontak->fb)}}"><i class="icon-facebook"></i></a></li>
+						<li><a target="_blank" href="{{url($kontak->fb)}}" title="Facebook"><i class="icon-facebook"></i></a></li>
 					@endif
 					@if($kontak->tw)
-						<li><a target="_blank" href="{{url($kontak->tw)}}"><i class="icon-twitter"></i></a></li>
+						<li><a target="_blank" href="{{url($kontak->tw)}}" title="Twitter"><i class="icon-twitter"></i></a></li>
 					@endif
 					@if($kontak->gp)
-						<li><a target="_blank" href="{{url($kontak->gp)}}"><i class="icon-gplus"></i></a></li>
+						<li><a target="_blank" href="{{url($kontak->gp)}}" title="Google+"><i class="icon-gplus"></i></a></li>
 					@endif
 					@if($kontak->pt)
-						<li><a target="_blank" href="{{url($kontak->pt)}}"><i class="icon-pinterest"></i></a></li>
+						<li><a target="_blank" href="{{url($kontak->pt)}}" title="Pinterest"><i class="icon-pinterest"></i></a></li>
 					@endif
 					@if($kontak->tl)
-						<li><a target="_blank" href="{{url($kontak->tl)}}"><i class="icon-tumblr"></i></a></li>
+						<li><a target="_blank" href="{{url($kontak->tl)}}" title="Tumblr"><i class="icon-tumblr"></i></a></li>
 					@endif
 					@if($kontak->ig)
-						<li><a target="_blank" href="{{url($kontak->ig)}}"><i class="icon-instagrem"></i></a></li>
+						<li><a target="_blank" href="{{url($kontak->ig)}}" title="Instagram"><i class="icon-instagrem"></i></a></li>
 					@endif
 				</ul>
 			</div>

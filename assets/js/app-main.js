@@ -2,7 +2,7 @@ var dirTema = document.querySelector("meta[name='theme_path']").getAttribute('co
 
 require.config({
     baseUrl: '/',
-    waitSeconds : 20,
+    waitSeconds : 60,
     urlArgs: "v=005",
     shim: {
         "bootstrap": {
@@ -66,7 +66,7 @@ require([
     router.define('home', 'home@run');
 
     // KONTAK
-    // router.define('kontak', 'kontak@run');
+    router.define('kontak', 'kontak@run');
 
     // MEMBER
     router.define('member/*', 'member@run');
