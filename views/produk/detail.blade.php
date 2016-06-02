@@ -179,8 +179,8 @@
                             </div>
                     
                             <div id="review" class="accordion-body in collapse">
-                                <div id="review-trustklik" class="accordion-inner">
-                                    {{pluginTrustklik()}}
+                                <div class="accordion-inner">
+                                    {{ pluginComment(product_url($produk), @$produk) }}
                                 </div>
                             </div>
                         </div>

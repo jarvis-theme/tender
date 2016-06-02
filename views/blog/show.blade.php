@@ -25,14 +25,14 @@
                     <hr>
 
                     <div class="navigate comments clearfix">
-                        @if(isset($prev))
-                        <div class="pull-left"><a href="{{$prev->slug}}">&larr; Sebelumnya</a></div>
+                        @if(prev_blog($detailblog))
+                        <div class="pull-left"><a href="{{blog_url(prev_blog())}}">&larr; Sebelumnya</a></div>
                         @else
                         <div class="pull-right"></div>
                         @endif
 
-                        @if(isset($next))
-                        <div class="pull-right"><a href="{{$next->slug}}">Selanjutnya &rarr;</a></div>
+                        @if(next_blog($detailblog))
+                        <div class="pull-right"><a href="{{blog_url(next_blog())}}">Selanjutnya &rarr;</a></div>
                         @else
                         <div class="pull-right"></div>
                         @endif
@@ -40,7 +40,7 @@
 
                     <div>
                         {{$fbscript}}
-                        {{fbcommentbox(blog_url($detailblog), '100%', '5', 'light')}}
+                        {{fbcommentbox(blog_url($detailblog), '100%', '5', 'light')}} 
                     </div>
                     <hr>
                 </div>
@@ -49,14 +49,14 @@
                         <p class="title"><i class="icon-rss"></i> <strong>Artikel Terbaru</strong></p>
                         <ul>
                             @foreach(list_blog(8) as $recent)
-                            <li><a href="{{blog_url($recent)}}">{{$recent->judul}}</a><br /><small>diposting tanggal {{waktu($recent->updated_at)}}</small></li>
+                            <li><a href="{{blog_url($recent)}}">{{$recent->judul}}</a><br /><small>diposting tanggal {{waktu($recent->created_at)}}</small></li>
                             @endforeach
                         </ul>
                     </aside>
                     @if($detailblog->tags != "")
                     <aside class="clearfix tags">
                         <p class="title"><i class="icon-tag"></i> <strong>Tags</strong></p>
-                        {{ getTags('<span class="underline"></span>',$detailblog->tags)}}
+                        {{ getTags('<span class="underline"></span>',$detailblog->tags)}} 
                     </aside>
                     @endif
                 </div>

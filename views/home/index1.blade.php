@@ -23,7 +23,7 @@
                     <section>
                         <h5>Hubungi Kami</h5>
                         @if($shop->ym)
-                        {{ymyahoo($shop->ym)}}
+                        {{ymyahoo($shop->ym)}} 
                         <br><br>
                         @endif  
 
@@ -84,11 +84,11 @@
                     @foreach(home_product() as $key=>$myproduk)
                         <article id="home-product">
                             @if(is_outstok($myproduk))
-                            {{is_outstok($myproduk)}}
+                            {{is_outstok($myproduk)}} 
                             @elseif(is_terlaris($myproduk))
-                            {{is_terlaris($myproduk)}}
+                            {{is_terlaris($myproduk)}} 
                             @elseif(is_produkbaru($myproduk))
-                            {{is_produkbaru($myproduk)}}
+                            {{is_produkbaru($myproduk)}} 
                             @endif
                             <div class="view view-thumb">
                                 <img id"home-thumb" src="{{URL::to(product_image_url($myproduk->gambar1,'medium'))}}" class="img1" alt="{{$myproduk->nama}}" title="{{$myproduk->nama}}" />

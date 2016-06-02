@@ -2,7 +2,7 @@
     <section class="login">
         <div class="row standard">
             <header class="span12 prime"><h3>Akun</h3></header>
-        </div>              
+        </div>
 
         <div class="wrap">
             <div class="row-fluid">
@@ -38,11 +38,11 @@
                         </div>
 
                         <div class="tab-pane active" id="forgot">
-                            {{Form::open(array('url' => 'member/recovery/'.$id.'/'.$code, 'class' => 'form-horizontal'))}}
+                            {{Form::open(array('url' => 'member/recovery/'.$id.'/'.$code, 'class' => 'form-horizontal'))}} 
                                 <div class="control-group">
                                     <label class="control-label" for="inputPassword">Password Baru</label>
                                     <div class="controls">
-                                        <input type="password" name="password" id="inputPassword" placeholder="password baru" required>
+                                        <input type="password" name="password" id="inputPassword" placeholder="password baru" required autofocus>
                                     </div>
                                 </div>
 
@@ -58,7 +58,7 @@
                                         <button type="submit" class="btn theme">Reset Password</button>
                                     </div>
                                 </div>
-                            {{Form::close()}}
+                            {{Form::close()}} 
                         </div>
                     </div>
                 </div>

@@ -35,7 +35,7 @@ define(['jquery','jq_ui','bootstrap','flexslider','jquery_sharrre'], function($)
 				facebook: true
 			  },
 			  buttons: {
-				facebook: {layout: 'box_count'}
+				facebook: {layout: 'button'}
 			  },
 			  enableHover: false,
 			  enableTracking: true,

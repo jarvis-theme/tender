@@ -3,13 +3,13 @@
 		<div class="row-fluid">
 			<div class="pull-left greet">
 				@if ( !is_login() )
-					Selamat berbelanja, {{HTML::link('member', 'Login')}}
+					Selamat berbelanja, {{HTML::link('member', 'Login')}} 
 				@else
-					Selamat datang {{HTML::link('member', user()->nama)}}, {{HTML::link('logout', 'logout')}}
+					Selamat datang {{HTML::link('member', user()->nama)}}, {{HTML::link('logout', 'logout')}} 
 				@endif
 			</div>
 			<div class="pull-right cart tleft" id='shoppingcartplace'>
-                {{shopping_cart()}}
+				{{shopping_cart()}} 
 			</div>
 		</div>
 	</div>

@@ -7,12 +7,12 @@
                     @foreach(home_product() as $key=>$myproduk)
                     <div class="tab-pane active" id="feat">
                         <article id="popular" class="span4">
-                            @if(is_outstok($myproduk))
-                            {{is_outstok($myproduk)}}
-                            @elseif(is_terlaris($myproduk))
-                            {{is_terlaris($myproduk)}}
-                            @elseif(is_produkbaru($myproduk))
-                            {{is_produkbaru($myproduk)}}
+                            @if(is_outstok($myproduk)) 
+                            {{is_outstok($myproduk)}} 
+                            @elseif(is_terlaris($myproduk)) 
+                            {{is_terlaris($myproduk)}} 
+                            @elseif(is_produkbaru($myproduk)) 
+                            {{is_produkbaru($myproduk)}} 
                             @endif
 
                             <div class="view view-thumb">

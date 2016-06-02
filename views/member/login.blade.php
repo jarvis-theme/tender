@@ -18,7 +18,7 @@
                                 <div class="control-group">
                                     <label class="control-label" for="inputEmail"> Email</label>
                                     <div class="controls">
-                                        <input type="email" value="{{Input::old('email')}}" name="email" id="inputEmail" placeholder="Email" required>
+                                        <input type="email" value="{{Input::old('email')}}" name="email" id="inputEmail" placeholder="Email" required autofocus>
                                     </div>
                                 </div>
 

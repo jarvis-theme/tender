@@ -2,7 +2,7 @@
 	<div class="container">
 		<section class="row foot">
 			@foreach(all_menu() as $key=>$group)
-            @if($key!=0)
+			@if($key!=0)
 			<article class="span3">
 				<strong>{{$group->nama}}</strong>
 				<ul>
@@ -26,7 +26,7 @@
 				<strong>Newsletter</strong>
 				<div id="mc_embed_signup">
 					<form action="{{@$mailing->action}}" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form newsletter" class="validate form-inline" target="_blank" novalidate>
-                    	<input type="email" placeholder="Email anda" name="EMAIL" class="input-medium required email" id="newsletter mce-EMAIL" required {{@$mailing->action==''?'disabled style="cursor:default"':''}}>
+						<input type="email" placeholder="Email anda" name="EMAIL" class="input-medium required email" id="newsletter mce-EMAIL" required {{@$mailing->action==''?'disabled style="cursor:default"':''}}>
 						<button type="submit" class="btn" {{ @$mailing->action==''?'disabled="disabled"':'' }}><i class="icon-direction"></i></button>
 					</form>
 				</div>
@@ -45,8 +45,10 @@
 					</address>
 					@if($kontak->bb!='')
 					<address class="row-fluid">
-						<div class="pull-left clabel"><img src="{{url('img/bbm.png')}}"></div>
-						<div class="pull-left cdata">{{$kontak->bb}}</div>
+						<div class="pull-left clabel" style="width: 10%; padding-right: 2%">
+							<img src="{{url('img/bbm.png')}}">
+						</div>
+						<div class="pull-left cdata" style="width: 70%">{{$kontak->bb}}</div>
 					</address>
 					@endif
 					@if($kontak->ym)
@@ -66,22 +68,27 @@
 		<div class="container">
 			<div class="span12">
 				@foreach(list_banks() as $value)
+					@if($value->status == 1)
 					<img src="{{bank_logo($value)}}" alt="{{$value->bankdefault->nama}}" title="{{$value->bankdefault->nama}}" />
+					@endif
 				@endforeach
 				@foreach(list_payments() as $pay)
-                    @if($pay->nama == 'paypal' && $pay->aktif == 1)
-                    <img class="img-responsive" src="{{url('img/bank/paypal.png')}}" alt="Paypal" title="Paypal" />
-                    @endif
-                    @if($pay->nama == 'ipaymu' && $pay->aktif == 1)
-                    <img src="{{url('img/bank/ipaymu.jpg')}}" alt="ipaymu" title="Ipaymu" />
-                    @endif
-                    @if($pay->nama == 'bitcoin' && $pay->aktif == 1)
-                    <img src="{{url('img/bitcoin.png')}}" alt="bitcoin" title="Bitcoin" />
-                    @endif
-                @endforeach
-                @if(count(list_dokus()) > 0 && list_dokus()->status == 1)
-                <img src="{{url('img/bank/doku.jpg')}}" alt="doku myshortcart" title="Doku" />
-                @endif
+					@if($pay->nama == 'paypal' && $pay->aktif == 1)
+					<img class="img-responsive" src="{{url('img/bank/paypal.png')}}" alt="Paypal" title="Paypal" />
+					@endif
+					@if($pay->nama == 'ipaymu' && $pay->aktif == 1)
+					<img src="{{url('img/bank/ipaymu.jpg')}}" alt="ipaymu" title="Ipaymu" />
+					@endif
+					@if($pay->nama == 'bitcoin' && $pay->aktif == 1)
+					<img src="{{url('img/bitcoin.png')}}" alt="bitcoin" title="Bitcoin" />
+					@endif
+				@endforeach
+				@if(count(list_dokus()) > 0 && list_dokus()->status == 1)
+				<img src="{{url('img/bank/doku.jpg')}}" alt="doku myshortcart" title="Doku" />
+				@endif
+				@if(count(list_veritrans()) > 0 && list_veritrans()->status == 1 && list_veritrans()->type == 1)
+				<img src="{{url('img/bank/veritrans.png')}}" alt="Veritrans" title="Veritrans">
+				@endif
 			</div>
 		</div>
 	</section>
@@ -115,4 +122,4 @@
 		</div>
 	</section>
 </footer>
-{{pluginPowerup()}}
+{{pluginPowerup()}} 

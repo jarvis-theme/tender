@@ -10,7 +10,7 @@
 					@foreach(list_testimonial() as $key=>$value)
 					<article>
 						<a href="#"><h4>{{$value->nama}}</h4></a>
-						<p><small class="date"><i class="icon-calendar"></i> {{date("d M Y", strtotime($value->updated_at))}}</small> </p>
+						<p><small class="date"><i class="icon-calendar"></i> {{date("d M Y", strtotime($value->created_at))}}</small> </p>
 						{{substr($value->isi,0,250)}}
 					</article>
 					@endforeach
@@ -28,7 +28,7 @@
 							<div class="control-group">
 								<label class="title-testi control-label" for="inputEmail"> Nama</label>
 								<div class="controls" id="input-testi">
-									<input type="text" name="nama" id="inputEmail" required>
+									<input type="text" name="nama" id="inputEmail" required autofocus>
 								</div>
 							</div>
 
