@@ -31,9 +31,9 @@ require.config({
     paths: {
         // LIBRARY
         bootstrap       : '//maxcdn.bootstrapcdn.com/bootstrap/2.2.1/js/bootstrap.min',
-        cart            : 'js/shop_cart',
+        cart            : '//s3-ap-southeast-1.amazonaws.com/cdn2.jarvis-store.com/js/shop_cart',
         flexslider      : '//s3-ap-southeast-1.amazonaws.com/cdn2.jarvis-store.com/assets/tender/assets/js/lib/jquery.flexslider',
-        jq_ui           : 'js/jquery-ui',
+        jq_ui           : '//s3-ap-southeast-1.amazonaws.com/cdn2.jarvis-store.com/js/jquery-ui',
         jquery          : '//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min',
         jquery_sharrre  : '//s3-ap-southeast-1.amazonaws.com/cdn2.jarvis-store.com/assets/tender/assets/js/lib/jquery.sharrre',
         mobilegmap      : '//s3-ap-southeast-1.amazonaws.com/cdn2.jarvis-store.com/assets/tender/assets/js/lib/jquery.mobilegmap',
