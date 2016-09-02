@@ -32,15 +32,15 @@ require.config({
         // LIBRARY
         bootstrap       : '//maxcdn.bootstrapcdn.com/bootstrap/2.2.1/js/bootstrap.min',
         cart            : 'js/shop_cart',
-        flexslider      : dirTema+'/assets/js/lib/jquery.flexslider',
+        flexslider      : '//s3-ap-southeast-1.amazonaws.com/cdn2.jarvis-store.com/assets/tender/assets/js/lib/jquery.flexslider',
         jq_ui           : 'js/jquery-ui',
         jquery          : '//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min',
-        jquery_sharrre  : dirTema+'/assets/js/lib/jquery.sharrre',
-        mobilegmap      : dirTema+'/assets/js/lib/jquery.mobilegmap',
+        jquery_sharrre  : '//s3-ap-southeast-1.amazonaws.com/cdn2.jarvis-store.com/assets/tender/assets/js/lib/jquery.sharrre',
+        mobilegmap      : '//s3-ap-southeast-1.amazonaws.com/cdn2.jarvis-store.com/assets/tender/assets/js/lib/jquery.mobilegmap',
         googlemap       : '//maps.googleapis.com/maps/api/js?sensor=false',
-        noty            : 'js/jquery.noty',
-        noty_util       : 'js/utils/noty',
-        select_nav      : dirTema+'/assets/js/lib/selectNav',
+        noty            : '//s3-ap-southeast-1.amazonaws.com/cdn2.jarvis-store.com/js/jquery.noty',
+        noty_util       : '//s3-ap-southeast-1.amazonaws.com/cdn2.jarvis-store.com/js/utils/noty',
+        select_nav      : '//s3-ap-southeast-1.amazonaws.com/cdn2.jarvis-store.com/assets/tender/assets/js/lib/selectNav',
 
         // ROUTE
         router          : 'js/router',
