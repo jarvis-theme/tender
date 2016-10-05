@@ -1,11 +1,27 @@
-define(['jquery','jquery_sharrre'], function($)
+define(['jquery','js_socials'], function($)
 {
 	return new function()
 	{
 		var self = this;
 		self.run = function()
 		{
-			sharrreButtons() ;
+			$(window).load(function(){
+				share();
+			});
+		};
+
+		var share = function(){
+			var url = document.querySelector("meta[name='url']").getAttribute('content');
+			var text = document.querySelector("meta[name='DC.Title']").getAttribute('content');
+
+			$(".share").jsSocials({
+				url: url,
+				text: text,
+				showCount: false,
+				showLabel: true,
+				shareIn: "popup",
+				shares: ["twitter", {share: "facebook", label: "Share"}, "googleplus", "pinterest", "stumbleupon"]
+			});
 		};
 
 		var sharrreButtons = function(){

@@ -2,8 +2,8 @@
     <section class="blog">
         <div class="row">
             <header class="span12 prime">
-                <h3>{{$detailblog->judul}}</h3>
-                <p><span class="date"><i class="icon-calendar"></i> {{date("d M Y", strtotime($detailblog->updated_at))}} <i class="icon-tag"></i><a href="{{blog_category_url(@$detailblog->kategori)}}"> {{@$detailblog->kategori->nama}}</a></span></p>
+                <h1>{{$detailblog->judul}}</h1>
+                <p><span class="date"><i class="icon-calendar"></i> {{date("d M Y", strtotime($detailblog->created_at))}} <i class="icon-tag"></i><a href="{{blog_category_url(@$detailblog->kategori)}}"> {{@$detailblog->kategori->nama}}</a></span></p>
             </header>
         </div>
 
@@ -13,18 +13,7 @@
                     <article>
                         <p>{{$detailblog->isi}}</p>
                     </article>
-                    <hr>
-                    <div class="share" id="sosmed">
-                        <div id="twitter" data-url="{{Request::url();}}" data-text="{{$detailblog->slug}} | " data-title="Tweet"></div>
-                        <div id="facebook" data-url="{{Request::url();}}" data-text="{{$detailblog->slug}}" data-title="Like"></div>
-                        <div id="googleplus" data-url="{{Request::url();}}" data-text="{{$detailblog->slug}}" data-title="+1"></div>
-                        <div id="delicious" data-url="{{Request::url();}}" data-text="{{$detailblog->slug}}"></div>
-                        <div id="stumbleupon" data-url="{{Request::url();}}" data-text="{{$detailblog->slug}}"></div>
-                    </div> 
-                    <br>
-                    <hr>
-
-                    <div class="navigate comments clearfix">
+                    <div class="navigate clearfix">
                         @if(prev_blog($detailblog))
                         <div class="pull-left"><a href="{{blog_url(prev_blog())}}">&larr; Sebelumnya</a></div>
                         @else
@@ -37,6 +26,9 @@
                         <div class="pull-right"></div>
                         @endif
                     </div>
+                    <hr>
+                    <div class="share"></div>
+                    <hr>
 
                     <div>
                         {{$fbscript}}

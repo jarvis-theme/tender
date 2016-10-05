@@ -147,13 +147,7 @@
                     <hr>
                     <div class="row-fluid">
                         <div class="span12 decidernote">Bingung memilih? tanyalah teman :)</div>
-                        <div class="span12 decider">
-                            <div id="twitter" data-url="{{Request::url();}}" data-text="{{$produk->nama}} | " data-title="Tweet"></div>
-                            <div id="facebook" data-url="{{Request::url();}}" data-text="{{$produk->nama}}" data-title="Like"></div>
-                            <div id="googleplus" data-url="{{Request::url();}}" data-text="{{$produk->nama}}" data-title="+1"></div>
-                            <div id="delicious" data-url="{{Request::url();}}" data-text="{{$produk->nama}}"></div>
-                            <div id="stumbleupon" data-url="{{Request::url();}}" data-text="{{$produk->nama}}"></div>
-                        </div>
+                        <div id="share"></div>
                     </div>
                     <hr>
 

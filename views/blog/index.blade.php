@@ -1,7 +1,7 @@
 ﻿﻿<div class="container">
     <section class="blog">
         <div class="row">
-            <header class="span12 prime"><h3>{{$title}}</h3></header>
+            <header class="span12 prime"><h1>{{$title}}</h1></header>
         </div>
 
         <div class="wrap">
@@ -28,7 +28,7 @@
                 @if(count(list_blog(null,@$blog_category)) > 0) 
                     @foreach(list_blog(null,@$blog_category) as $key=>$value) 
                     <article>
-                        <a href="{{blog_url($value)}}"><h4>{{$value->judul}}</h4></a>
+                        <a href="{{blog_url($value)}}"><h2>{{$value->judul}}</h2></a>
                         <p><small class="date"><i class="icon-calendar"></i> {{waktuTgl($value->created_at)}}</small></p>
                         {{short_description($value->isi,300)}}
                         <p><a href="{{blog_url($value)}}" class="theme">Baca Selengkapnya →</a></p>

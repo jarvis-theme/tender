@@ -1,17 +1,33 @@
-define(['jquery','jq_ui','bootstrap','flexslider','jquery_sharrre'], function($)
+define(['jquery','js_socials','flexslider'], function($)
 {
 	return new function()
 	{
 		var self = this;
 		self.run = function()
 		{
-			slider();
-			sharrreButtons();
-			
-			// Fancybox function
-			$('#flexslider-product .slides a').fancybox();
+			$(window).load(function(){
+				share();
+				slider();
+				// Fancybox function
+				$('#flexslider-product .slides a').fancybox();
 
-			$(".collapse").collapse();
+				$(".collapse").collapse();
+			});
+			
+		};
+
+		var share = function(){
+			var url = document.querySelector("meta[name='url']").getAttribute('content');
+			var text = document.querySelector("meta[name='DC.Title']").getAttribute('content');
+
+			$("#share").jsSocials({
+				url: url,
+				text: text,
+				showCount: false,
+				showLabel: false,
+				shareIn: "popup",
+				shares: ["twitter", "facebook", "googleplus", "pinterest", "stumbleupon"]
+			});
 		};
 
 		var sharrreButtons = function(){

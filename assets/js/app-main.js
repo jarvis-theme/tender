@@ -2,8 +2,8 @@ var dirTema = document.querySelector("meta[name='theme_path']").getAttribute('co
 
 require.config({
     baseUrl: '/',
-    waitSeconds : 60,
-    urlArgs: "v=005",
+    waitSeconds : 300,
+    urlArgs: "v=005b",
     shim: {
         "bootstrap": {
             deps: ['jquery']
@@ -23,8 +23,8 @@ require.config({
         "noty"  : {
             deps : ['jquery']
         },
-        "noty_util" : {
-            deps : ['jquery','noty']
+        "js_socials" : {
+            deps : ['jquery']
         }
     },
     
@@ -35,12 +35,13 @@ require.config({
         flexslider      : '//s3-ap-southeast-1.amazonaws.com/cdn2.jarvis-store.com/assets/tender/assets/js/lib/jquery.flexslider',
         jq_ui           : '//s3-ap-southeast-1.amazonaws.com/cdn2.jarvis-store.com/js/jquery-ui',
         jquery          : '//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min',
+        jquery2         : '//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min',
         jquery_sharrre  : '//s3-ap-southeast-1.amazonaws.com/cdn2.jarvis-store.com/assets/tender/assets/js/lib/jquery.sharrre',
         mobilegmap      : '//s3-ap-southeast-1.amazonaws.com/cdn2.jarvis-store.com/assets/tender/assets/js/lib/jquery.mobilegmap',
         googlemap       : '//maps.googleapis.com/maps/api/js?sensor=false',
         noty            : '//s3-ap-southeast-1.amazonaws.com/cdn2.jarvis-store.com/js/jquery.noty',
-        noty_util       : '//s3-ap-southeast-1.amazonaws.com/cdn2.jarvis-store.com/js/utils/noty',
         select_nav      : '//s3-ap-southeast-1.amazonaws.com/cdn2.jarvis-store.com/assets/tender/assets/js/lib/selectNav',
+        js_socials      : '//cdn.jsdelivr.net/jquery.jssocials/1.3.1/jssocials.min',
 
         // ROUTE
         router          : 'js/router',

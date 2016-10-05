@@ -1,4 +1,4 @@
-define(['jquery','bootstrap','select_nav','googlemap'], function()
+define(['jquery','bootstrap','select_nav','googlemap'], function($)
 {
 	return new function(){
 		var self = this;
