@@ -26,7 +26,7 @@ define(['jquery','js_socials','flexslider'], function($)
 				showCount: false,
 				showLabel: false,
 				shareIn: "popup",
-				shares: ["twitter", "facebook", "googleplus", "pinterest", "stumbleupon"]
+				shares: ["twitter", "facebook", "googleplus", "pinterest", "stumbleupon", "line", "whatsapp"]
 			});
 		};
 

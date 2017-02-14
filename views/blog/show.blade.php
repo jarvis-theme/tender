@@ -3,7 +3,14 @@
         <div class="row">
             <header class="span12 prime">
                 <h1>{{$detailblog->judul}}</h1>
-                <p><span class="date"><i class="icon-calendar"></i> {{date("d M Y", strtotime($detailblog->created_at))}} <i class="icon-tag"></i><a href="{{blog_category_url(@$detailblog->kategori)}}"> {{@$detailblog->kategori->nama}}</a></span></p>
+                <p>
+                    <span class="date">
+                        <i class="icon-calendar"></i> {{date("d M Y", strtotime($detailblog->created_at))}} 
+                        @if(!empty($detailblog->kategori))
+                        <i class="icon-tag"></i><a href="{{blog_category_url($detailblog->kategori)}}"> {{$detailblog->kategori->nama}}</a>
+                        @endif
+                    </span>
+                </p>
             </header>
         </div>
 

@@ -44,7 +44,7 @@ require.config({
         js_socials      : '//cdn.jsdelivr.net/jquery.jssocials/1.3.1/jssocials.min',
 
         // ROUTE
-        router          : 'js/router',
+        router          : '//s3-ap-southeast-1.amazonaws.com/cdn2.jarvis-store.com/js/router',
 
         // CONTROLLER
         blog            : dirTema+'/assets/js/pages/blog',

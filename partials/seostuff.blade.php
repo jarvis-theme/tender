@@ -17,5 +17,4 @@
 		<meta property="og:description"   content="{{$description}}" />
 		<meta property="og:image"         content="{{@$img!='' ? product_image_url($img):''}}" />
 		<link rel="canonical" href="{{URL::full()}}">
-		<link rel="theme_path" href="{{theme_path()}}">
 		

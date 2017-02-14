@@ -20,7 +20,7 @@ define(['jquery','js_socials'], function($)
 				showCount: false,
 				showLabel: true,
 				shareIn: "popup",
-				shares: ["twitter", {share: "facebook", label: "Share"}, "googleplus", "pinterest", "stumbleupon"]
+				shares: ["twitter", {share: "facebook", label: "Share"}, "googleplus", "pinterest", "stumbleupon", "line", "whatsapp"]
 			});
 		};
 

@@ -66,7 +66,7 @@
 	</div>
 	<section class="row-fluid doubleline">
 		<div class="container">
-			<div class="span12">
+			<div class="span12 payment">
 				@foreach(list_banks() as $value)
 					@if($value->status == 1)
 					<img src="{{bank_logo($value)}}" alt="{{$value->bankdefault->nama}}" title="{{$value->bankdefault->nama}}" />
@@ -74,20 +74,20 @@
 				@endforeach
 				@foreach(list_payments() as $pay)
 					@if($pay->nama == 'paypal' && $pay->aktif == 1)
-					<img class="img-responsive" src="{{url('img/bank/paypal.png')}}" alt="Paypal" title="Paypal" />
+					<img src="{{url(Config::get('aws.cdn2.endpoint').'/img/bank/paypal.png')}}" alt="Paypal" title="Paypal" style="height: 33px;" />
 					@endif
 					@if($pay->nama == 'ipaymu' && $pay->aktif == 1)
-					<img src="{{url('img/bank/ipaymu.jpg')}}" alt="ipaymu" title="Ipaymu" />
+					<img src="{{url(Config::get('aws.cdn2.endpoint').'/img/bank/ipaymu.png')}}" alt="ipaymu" title="Ipaymu" />
 					@endif
 					@if($pay->nama == 'bitcoin' && $pay->aktif == 1)
-					<img src="{{url('img/bitcoin.png')}}" alt="bitcoin" title="Bitcoin" />
+					<img src="{{url(Config::get('aws.cdn2.endpoint').'/img/bitcoin.png')}}" alt="bitcoin" title="Bitcoin" />
 					@endif
 				@endforeach
 				@if(count(list_dokus()) > 0 && list_dokus()->status == 1)
-				<img src="{{url('img/bank/doku.jpg')}}" alt="doku myshortcart" title="Doku" />
+				<img src="{{url(Config::get('aws.cdn2.endpoint').'/img/doku.jpg')}}" alt="doku myshortcart" title="Doku" />
 				@endif
 				@if(count(list_veritrans()) > 0 && list_veritrans()->status == 1 && list_veritrans()->type == 1)
-				<img src="{{url('img/bank/veritrans.png')}}" alt="Veritrans" title="Veritrans">
+				<img src="{{url(Config::get('aws.cdn2.endpoint').'/img/bank/midtrans.png')}}" alt="Midtrans" title="Midtrans" >
 				@endif
 			</div>
 		</div>
