@@ -300,7 +300,6 @@ section.single .details {text-align: left;padding: 20px;background: #F5F5F5;bord
 
 .page {padding-bottom: 30px}
 .page .contactform {margin-top: 20px}
-.page .contactform textarea {width:95%}
 
 /* ============ */
 /* Blog section */
@@ -694,7 +693,8 @@ div > .button:hover{background-color: #fff;}
 #review-trustklik{height: auto}
 #related-produk{position: relative}
 #related-image{height: 220px}
-#horizontal-banner{width: 99%;margin: 0 auto;margin-bottom: 15px}
+/*#horizontal-banner{width: 99%;margin: 0 auto;margin-bottom: 15px}*/
+#horizontal-banner{margin: 0 0 15px 18px;}
 #list-produk{height: 262px; position: relative}
 #result-image{border: 0}
 .align-left, article.align-justify > div > span.align-left{text-align: left}
@@ -725,7 +725,25 @@ form[name="order"] > input[name="SAVE"]:hover {
 header.prime > h1 { font-size: 2.5rem; }
 article h2 { font-size: 1.8rem; }
 .payment img { margin-right: 5px; margin-bottom: 5px; }
-
+section.product .sidebar section.bestproduk article { border: none; }
+.new-badge { position: absolute !important; }
+ .flexslider{white-space: nowrap;}
+#flexcarousel-product ul.slides { width: 100% !important }
+.input-block-level {
+  display: block;
+  width: 100%;
+  min-height: 30px;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.sidebanner { margin-bottom: 10px; }
+.new-badge, .best-badge, .outstok-badge {
+	top: 15px;
+	right: -1px;
+	width: initial;
+	height: initial;
+}
 
 /* ================= */
 /* Responsive styles */
@@ -738,9 +756,12 @@ article h2 { font-size: 1.8rem; }
 	.feat .span12{ width: 729px; }
     .feat .row{margin-left: -15px;}
     .feat .row .span4 { width: 226px;}
-	section.product  article {
+	section.product article {
 		margin: 0 0px 18px 13px !important;
 	}
+	section.product article.clearfix {
+    	margin: 0 0 18px 0 !important;
+    }
 	#gambar{margin: 12%}
 }
 
@@ -754,7 +775,7 @@ article h2 { font-size: 1.8rem; }
 	.promo article {margin:15px auto !important}
 	section.feat .view, section.product .view, section.single .view {margin:10px auto}
 	.product .sidebar .info {width: 100%}
-	.product .tab-content.sideline article {width: 97% !important}
+	section.product .tab-content.sideline article {width: 100%}
 	section.product article { margin : 0 0 10px!important}
 	.product .tab-content.sideline {border: none !important}
 	section.single .flex-control-nav {display: block !important}
@@ -778,6 +799,9 @@ article h2 { font-size: 1.8rem; }
 	#desc{margin: 0% 8% 8% 8%}
 	.span1{margin: 0px;}
 	.payment { text-align: center; }
+	#horizontal-banner { margin: 0 0 15px 0; }
+	section.product .sidebar { padding-left: 0; }
+	section.product .tab-content.sideline { overflow: inherit; }
 }
 
 @media (max-width: 600px) {
@@ -786,6 +810,7 @@ article h2 { font-size: 1.8rem; }
 	.js .selectnav { display: block; font-size:0.9em}
 	#gambar{margin-top: 12%}
 	#desc{margin: 0% 8% 8% 8%}
+	.topsearch button[type="submit"] { display: none; }
 }
 
 @media (max-width: 480px) {
@@ -808,6 +833,9 @@ article h2 { font-size: 1.8rem; }
 @media (max-width: 384px){
 	#gambar{margin: 0}
 	#desc{margin: 0% 8% 8% 8%}	
+}
+@media (max-width: 314px){
+	form.form-search input[name="kodeorder"] { margin-bottom: 10px }
 }
 @media (min-width: 768px) and (max-width: 800px) {
 	.email{width: 65%}

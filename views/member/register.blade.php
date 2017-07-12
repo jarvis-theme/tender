@@ -44,8 +44,15 @@
 
 					<div class="control-group">
 						<label class="control-label" for="inputEmail"> Negara*</label>
-						<div class="controls" >
-							{{Form::select('negara',array('' => '-- Pilih Negara --') + $negara, Input::old('negara'), array('required', 'id'=>"negara", 'data-rel'=>"chosen"))}} 
+						<div class="controls">
+							<select name="negara" id="negara" data-rel="chosen" required>
+								<option selected>-- Pilih Negara --</option>
+								@foreach ($negara as $key=>$item)
+									@if(strtolower($item)=='indonesia')
+									<option value="1" {{Input::old('negara')==1 ? 'selected' : ''}}>{{$item}}</option>
+									@endif
+								@endforeach
+							</select>
 						</div>
 					</div>
 

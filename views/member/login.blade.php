@@ -18,14 +18,14 @@
                                 <div class="control-group">
                                     <label class="control-label" for="inputEmail"> Email</label>
                                     <div class="controls">
-                                        <input type="email" value="{{Input::old('email')}}" name="email" id="inputEmail" placeholder="Email" required autofocus>
+                                        <input type="email" value="{{Input::old('email')}}" name="email" id="inputEmail" class="input-block-level" required autofocus>
                                     </div>
                                 </div>
 
                                 <div class="control-group">
                                     <label class="control-label" for="inputPassword">Password</label>
                                     <div class="controls">
-                                        <input type="password" name="password" id="inputPassword" placeholder="Password" required>
+                                        <input type="password" name="password" id="inputPassword" class="input-block-level" required>
                                     </div>
                                 </div>
 
@@ -40,7 +40,7 @@
                                 <div class="control-group">
                                     <label class="control-label" for="inputEmail"> Email</label>
                                     <div class="controls">
-                                      <input type="email" id="inputEmail" placeholder="Email" name='recoveryEmail'>
+                                      <input type="email" id="inputEmail" class="input-block-level" name="recoveryEmail">
                                     </div>
                                 </div>
 

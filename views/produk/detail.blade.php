@@ -8,60 +8,67 @@
                 <div class="wrap">
                     <div id="flexslider-product" class="flexslider">
                         <ul class="slides">
-                        @if($produk->gambar1!='')   
+                        {{--*/ $gambar=array(); /*--}}
+                        @if($produk->gambar1!='')
                             <li><a href="{{product_image_url($produk->gambar1,'large')}}"> {{HTML::image(url(product_image_url($produk->gambar1,'medium')), $produk->nama)}}</a></li>
+                            {{--*/ array_push($gambar, 1) /*--}}
                         @endif
-                        @if($produk->gambar2!='')   
+                        @if($produk->gambar2!='')
                             <li><a href="{{product_image_url($produk->gambar2,'large')}}"> {{HTML::image(url(product_image_url($produk->gambar2,'medium')), $produk->nama)}}</a></li>
+                            {{--*/ array_push($gambar, 2) /*--}}
                         @endif
-                        @if($produk->gambar3!='')               
+                        @if($produk->gambar3!='')
                             <li><a href="{{product_image_url($produk->gambar3,'large')}}"> {{HTML::image(url(product_image_url($produk->gambar3,'medium')), $produk->nama)}}</a></li>
+                            {{--*/ array_push($gambar, 3) /*--}}
                         @endif
-                        @if($produk->gambar4!='')               
+                        @if($produk->gambar4!='')
                             <li><a href="{{product_image_url($produk->gambar4,'large')}}"> {{HTML::image(url(product_image_url($produk->gambar4,'medium')), $produk->nama)}}</a></li>
-                        @endif  
-                        </ul>     
-                    </div>
-
-                    <div id="flexcarousel-product" class="flexslider visible-desktop">
-                        <ul class="slides">
-                        @if($produk->gambar1!='')               
-                            <li>{{HTML::image(url(product_image_url($produk->gambar1,'thumb')), 'Produk 1')}}</li>
+                            {{--*/ array_push($gambar, 4) /*--}}
                         @endif
-                        @if($produk->gambar2!='')               
-                            <li>{{HTML::image(url(product_image_url($produk->gambar2,'thumb')), 'Produk 2')}}</li>
-                        @endif
-                        @if($produk->gambar3!='')               
-                            <li>{{HTML::image(url(product_image_url($produk->gambar3,'thumb')), 'Produk 3')}}</li>
-                        @endif
-                        @if($produk->gambar4!='')               
-                            <li>{{HTML::image(url(product_image_url($produk->gambar4,'thumb')), 'Produk 4')}}</li>
-                        @endif  
                         </ul>
                     </div>
+
+                    @if(count($gambar) > 1)
+                    <div id="flexcarousel-product" class="flexslider visible-desktop">
+                        <ul class="slides">
+                        @if($produk->gambar1!='')
+                            <li>{{HTML::image(url(product_image_url($produk->gambar1,'thumb')), 'Produk 1')}}</li>
+                        @endif
+                        @if($produk->gambar2!='')
+                            <li>{{HTML::image(url(product_image_url($produk->gambar2,'thumb')), 'Produk 2')}}</li>
+                        @endif
+                        @if($produk->gambar3!='')
+                            <li>{{HTML::image(url(product_image_url($produk->gambar3,'thumb')), 'Produk 3')}}</li>
+                        @endif
+                        @if($produk->gambar4!='')
+                            <li>{{HTML::image(url(product_image_url($produk->gambar4,'thumb')), 'Produk 4')}}</li>
+                        @endif
+                        </ul>
+                    </div>
+                    @endif
                 </div>
             </div>
 
             <div class="span7">
                 <div class="details wrapper well">
-                    @if($setting->checkoutType=='1')    
+                    @if($setting->checkoutType=='1')
                         <p class="price"><i class="icon-tagX"></i> {{ price($produk->hargaJual) }} 
-                            @if($produk->hargaCoret != 0)   
+                            @if($produk->hargaCoret != 0)
                             <small id="discount"><span>{{ price($produk->hargaCoret) }}</span></small>
-                            @endif  
+                            @endif
                         </p>
 
-                        <form action="#" id='addorder'> 
-                            @if($opsiproduk->count()>0)                                 
+                        <form action="#" id='addorder'>
+                            @if($opsiproduk->count()>0)
                             <select name="opsiproduk">
                                 <option value="">-- Pilih Opsi --</option>
-                                @foreach ($opsiproduk as $key => $opsi)                                 
+                                @foreach ($opsiproduk as $key => $opsi)
                                 <option value="{{$opsi->id}}" {{ $opsi->stok==0 ? 'disabled':''}} >
-                                    {{$opsi->opsi1.($opsi->opsi2=='' ? '':' / '.$opsi->opsi2).($opsi->opsi3=='' ? '':' / '.$opsi->opsi3)}} {{price($opsi->harga)}}                          
+                                    {{$opsi->opsi1.($opsi->opsi2=='' ? '':' / '.$opsi->opsi2).($opsi->opsi3=='' ? '':' / '.$opsi->opsi3)}} {{price($opsi->harga)}}
                                 </option>
-                                @endforeach  
+                                @endforeach
                             </select>
-                            @endif              
+                            @endif
 
                             <div class="clearfix">
                                 <div class="pull-left">
@@ -71,18 +78,18 @@
                             </div>
                         </form>
 
-                    @elseif($setting->checkoutType=='2')    
-                        <form action="#" id='addorder'>     
+                    @elseif($setting->checkoutType=='2')
+                        <form action="#" id='addorder'>
                             @if($opsiproduk->count()>0) 
                                 <select name="opsiproduk">
                                     <option value="">-- Pilih Opsi --</option>
                                     @foreach ($opsiproduk as $key => $opsi) 
                                     <option value="{{$opsi->id}}">
-                                        {{$opsi->opsi1.($opsi->opsi2=='' ? '':' / '.$opsi->opsi2).($opsi->opsi3=='' ? '':' / '.$opsi->opsi3)}}                          
+                                        {{$opsi->opsi1.($opsi->opsi2=='' ? '':' / '.$opsi->opsi2).($opsi->opsi3=='' ? '':' / '.$opsi->opsi3)}}
                                     </option>
-                                    @endforeach 
+                                    @endforeach
                                 </select>
-                            @endif  
+                            @endif
 
                             <div class="clearfix">
                                 <div class="pull-left">
@@ -96,10 +103,10 @@
                         <p class="price"><i class="icon-tag"></i> {{ price($produk->hargaJual) }} 
                             @if($produk->hargaCoret != 0)   
                             <small id="discount"><span>{{ price($produk->hargaCoret) }}</span></small>
-                            @endif  
+                            @endif
                         </p>
 
-                        @if(@$po)   
+                        @if(@$po)
                             <br>
                             <div>
                                 <p>
@@ -110,11 +117,11 @@
                                         Kuota minimum proses pre-order : {{$po->kuota}}
                                     @endif
                                     <br>
-                                    DP : {{$po->dp}}    
+                                    DP : {{$po->dp}}
                                 </p>
                             </div>
 
-                            @if((strtotime($po->tanggalmulai)<=strtotime(date('Y-m-d'))) && (($po->kuota!=0) || ($po->tanggalakhir!='0000-00-00' && strtotime($po->tanggalakhir)>=strtotime(date('Y-m-d'))) ) )     
+                            @if((strtotime($po->tanggalmulai)<=strtotime(date('Y-m-d'))) && (($po->kuota!=0) || ($po->tanggalakhir!='0000-00-00' && strtotime($po->tanggalakhir)>=strtotime(date('Y-m-d'))) ))
                                 <form action="#" id='addorder'>
                                 
                                     @if($opsiproduk->count()>0) 
@@ -188,28 +195,28 @@
                         <hr />
                         <header>Produk yang mungkin anda suka</header>
                         <section class="row-fluid cross-product">
-                        @foreach(other_product($produk) as $myproduk)   
+                        @foreach(other_product($produk) as $myproduk)
                             <article class="span3" id="related-produk">
-                                @if(is_outstok($myproduk))
-                                {{is_outstok($myproduk)}}
-                                @elseif(is_terlaris($myproduk))
-                                {{is_terlaris($myproduk)}}
-                                @elseif(is_produkbaru($myproduk))
-                                {{is_produkbaru($myproduk)}}
-                                @endif
-
                                 <div id="related-image" class="view view-thumb">
+                                    @if(is_outstok($myproduk))
+                                    {{is_outstok($myproduk)}}
+                                    @elseif(is_terlaris($myproduk))
+                                    {{is_terlaris($myproduk)}}
+                                    @elseif(is_produkbaru($myproduk))
+                                    {{is_produkbaru($myproduk)}}
+                                    @endif
+
                                     {{HTML::image(url(product_image_url($myproduk->gambar1,'medium')), $myproduk->nama)}}
                                     <div class="mask">
                                         <h2>{{price($myproduk->hargaJual)}}</h2>
                                         <p>{{short_description($myproduk->deskripsi,100)}}</p>
-                                        <a href="{{product_url($myproduk)}}" class="info">Lihat</a> 
+                                        <a href="{{product_url($myproduk)}}" class="info">Lihat</a>
                                     </div>
                                 </div>
 
                                 <p class="product-title"><a href="{{product_url($myproduk)}}">{{$myproduk->nama}}</a></p>
                             </article>
-                        @endforeach 
+                        @endforeach
                         </section>
                     </div>
                 </div>

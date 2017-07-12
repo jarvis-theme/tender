@@ -147,38 +147,50 @@
                             {{Form::open(array('url'=>'member/update','method'=>'put','class'=>'form-horizontal'))}}
                                 <div class="span6">
                                     <h4>Biodata</h4>
-                                    Nama<br>
-                                    <input class="span6" type="text" name='nama' value='{{$user->nama}}'><br><br>
-                                    Email<br>
-                                    <input type="email" class="span6" name='email' value='{{$user->email}}'><br><br>
-                                    Alamat<br>
-                                    <textarea class="span6" name='alamat'>{{$user->alamat}}</textarea><br><br>
+                                    <label>Nama</label>
+                                    <input class="span6" type="text" name="nama" value="{{$user->nama}}">
+                                    <br><br>
+                                    <label>Email</label>
+                                    <input type="email" class="span6" name="email" value="{{$user->email}}">
+                                    <br><br>
+                                    <label>Alamat</label>
+                                    <textarea class="span6" name="alamat" rows="3">{{$user->alamat}}</textarea>
+                                    <br><br>
                                     <div>
-                                        Negara<br>
-                                        {{Form::select('negara',array('' => '-- Pilih Negara --') + $negara , ($user ? $user->negara :(Input::old("negara")? Input::old("negara") :"")), array('required'=>'', 'id'=>'negara'))}}
-                                    </div><br><br>
+                                        <label>Negara</label>
+                                        <select name="negara" id="negara" data-rel="chosen" required>
+                                            <option selected>-- Pilih Negara --</option>
+                                            @foreach ($negara as $key=>$item)
+                                                @if(strtolower($item)=='indonesia')
+                                                <option value="1" {{ $user->negara==1 ? "selected" : ""}}>{{$item}}</option>
+                                                @endif
+                                            @endforeach
+                                        </select>
+                                    </div><br>
                                     <div>
-                                        Provinsi
-                                        <br>{{Form::select('provinsi',array('' => '-- Pilih Provinsi --') + $provinsi , ($user ? $user->provinsi :(Input::old("provinsi")? Input::old("provinsi") :"")),array('required'=>'','id'=>'provinsi'))}}
-                                    </div><br><br>
+                                        <label>Provinsi</label>
+                                        {{Form::select('provinsi',array('' => '-- Pilih Provinsi --') + $provinsi , ($user ? $user->provinsi :(Input::old("provinsi")? Input::old("provinsi") :"")),array('required'=>'','id'=>'provinsi'))}}
+                                    </div><br>
                                     <div>
-                                        Kota
-                                        <br>{{Form::select('kota',array('' => '-- Pilih Kota --') + $kota , ($user ? $user->kota :(Input::old("kota")? Input::old("kota") :"")),array('required'=>'','id'=>'kota'))}}
-                                    </div><br><br>
-                                    Kode Pos<br>
+                                        <label>Kota</label>
+                                        {{Form::select('kota',array('' => '-- Pilih Kota --') + $kota , ($user ? $user->kota :(Input::old("kota")? Input::old("kota") :"")),array('required'=>'','id'=>'kota'))}}
+                                    </div><br>
+                                    <label>Kode Pos</label>
                                     <input class="span3" type="text" name='kodepos' value='{{$user->kodepos}}'><br><br>
-                                    Telepon / HP<br>
-                                    {{Form::input('text', 'telp', $user->telp, array('class'=>'span4'))}}<br><br>
-                                    <button type="submit" class="btn theme"><i class="icon-check"></i> Update</button>
+                                    <label>Telepon / HP</label>
+                                    {{Form::input('text', 'telp', $user->telp, array('class'=>'span3'))}}<br><br>
                                 </div>
                                 <div class="span6">
                                     <h4>Ubah Password</h4>
-                                    Password lama<br>
+                                    <label>Password lama</label>
                                     <input class="span6" type="password" name='oldpassword'><br><br>
-                                    Password baru<br>
+                                    <label>Password baru</label>
                                     <input class="span6" type="password" name='password'><br><br>
-                                    Confirm password baru<br>
+                                    <label>Confirm password baru</label>
                                     <input class="span6" type="password" name='password_confirmation'><br><br>
+                                </div>
+                                <div class="span12">
+                                    <button type="submit" class="btn theme"><i class="icon-check"></i> Update</button>
                                 </div>
                             {{Form::close()}}
                         </div>

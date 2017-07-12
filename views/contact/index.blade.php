@@ -29,25 +29,20 @@
 			<div class="span8">
 				<div class="row-fluid">
 					<form action="{{url('kontak')}}" class="wrap contactform" method="post">
-						<div class="span6">
-							<label for="inputEmail">Nama</label>
-							<input type="text" id="inputEmail" placeholder="Nama" class="input-medium" name="namaKontak" required autofocus>
+						<div class="controls">
+							<div class="span6">
+								<label>Nama</label>
+								<input type="text" class="span12 input-xlarge" name="namaKontak" required>
+							</div>
+							<div class="span6">
+								<label>Email</label>
+								<input type="text" class="span12 input-xlarge" name="emailKontak" required>
+							</div>
 						</div>
-
-						<div class="span6">
-							<label for="inputEmail">Email</label>
-							<input type="text" id="inputEmail" placeholder="Email" class="input-medium" name="emailKontak" required>
-						</div>
-
-						<!-- <div class="span4">
-							<label for="inputEmail">Phone No</label>
-							<input type="text" id="inputEmail" placeholder="+6287.." class="input-medium" nama="phoneKontak">
-						</div> -->
-
-						<div class="row-fluid">
+						<div class="controls">
 							<div class="span12">
-								<label for="inputPassword">Pesan</label>
-								<textarea rows="5" name="messageKontak" required></textarea>
+								<label>Pesan</label>
+								<textarea class="input-block-level" rows="5" name="messageKontak" required></textarea>
 							</div>
 							<p><input type="submit" class="btn" value="Kirim"/></p>
 						</div>

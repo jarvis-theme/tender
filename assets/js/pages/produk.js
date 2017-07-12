@@ -128,7 +128,8 @@ define(['jquery','js_socials','flexslider'], function($)
 			controlNav: false,
 			animationLoop: false,
 			slideshow: false,
-			itemWidth: 115,
+			itemWidth: 75,
+			directionNav: false,
 			asNavFor: "#flexslider-product"
 		  });
 		  

@@ -2,8 +2,8 @@
 <html lang="en">
 	<head>
 		{{ Theme::partial('seostuff') }}
-		{{ Theme::partial('defaultcss') }}
 		{{ Theme::asset()->styles() }}
+		{{ Theme::partial('defaultcss') }}
 		<style type="text/css">#tag-category{padding-left: 5px}</style>
 	</head>
 	<body>

@@ -5,7 +5,7 @@
 		</div>
 
 		<div class="row">
-			<div class="span3 hidden-phone">
+			<div class="span3">
 				<div class="sidebar">
 					@if(count(list_category()) > 0)
 					<section>
@@ -18,13 +18,13 @@
 					</section>
 					@endif
 					@if(count(best_seller()) > 0)
-					<section>
+					<section class="bestproduk hidden-phone">
 						<h5>Best Seller</h5>
-						@foreach (best_seller() as $item)
+						@foreach(best_seller() as $item)
 						<a href="{{product_url($item)}}">
 							<article class="clearfix">
-								<div class="thumb visible-desktop">
-									{{HTML::image(url(product_image_url($item->gambar1,'thumb')),$item->nama)}} 
+								<div class="thumb hidden-phone">
+									{{HTML::image(url(product_image_url($item->gambar1,'thumb')), $item->nama)}} 
 								</div>
 								<div class="info">
 									{{short_description($item->nama, 32)}}<br>
@@ -35,16 +35,18 @@
 						@endforeach 
 					</section>
 					@endif
-
-					<section>
+					@if(count(vertical_banner()) > 0)
+					<section class="hidden-phone">
+						{{--*/ $i=0; /*--}}
 						@foreach(vertical_banner() as $item) 
-						<div>
+						<div class="sidebanner">
 							<a href="{{url($item->url)}}">
-								{{HTML::image(url(banner_image_url($item->gambar)),'Info Promo')}} 
+								{{HTML::image(url(banner_image_url($item->gambar)), 'Info Promo '.$i++)}} 
 							</a>
 						</div>
 						@endforeach	
 					</section>
+					@endif
 				</div>
 			</div>
 

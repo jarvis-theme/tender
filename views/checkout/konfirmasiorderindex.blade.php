@@ -16,9 +16,9 @@
                 @else
                 {{-- */ $form_url = 'konfirmasipreorder' /* --}}
                 @endif
-                {{Form::open(array('url'=>$form_url,'method'=>'post','class'=>'form-inline'))}}
-                    <input type="text" class="input-large" placeholder="Kode Order" name="kodeorder" required autofocus>
-                    <button type="submit" class="btn theme"><i class="icon-check"></i> Cari Kode</button>
+                {{Form::open(array('url'=>$form_url,'method'=>'post','class'=>'form-search'))}}
+                    <input type="text" class="input-medium" placeholder="Kode Order" name="kodeorder" required autofocus>
+                    <button type="submit" class="btn theme"><i class="icon-search"></i> Cari Kode</button>
                 {{Form::close()}}
             @endif
             </header>
