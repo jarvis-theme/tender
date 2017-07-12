@@ -115,19 +115,19 @@
 
                             {{Form::open(array('url'=> $form_url.$order->id, 'method'=>'put', 'class'=> 'form-horizontal'))}}
                             <div class="control-group">
-                                <label class="control-label" for="inputEmail"> Nama Pengirim</label>
+                                <label class="control-label"> Nama Pengirim</label>
                                 <div class="controls">
                                     <input class="span6" type="text" name="nama" value="{{Input::old('nama')}}" required>
                                 </div>
                             </div>
                             <div class="control-group">
-                                <label class="control-label" for="inputEmail"> No Rekening</label>
+                                <label class="control-label"> No Rekening</label>
                                 <div class="controls">
                                     <input type="text" class="span6" name="noRekPengirim" value="{{Input::old('noRekPengirim')}}" required>
                                 </div>
                             </div>
                             <div class="control-group">
-                                <label class="control-label" for="inputEmail"> Rekening Tujuan</label>
+                                <label class="control-label"> Rekening Tujuan</label>
                                 <div class="controls">
                                     <select name="bank">
                                         <option value="">-- Pilih Bank Tujuan --</option>
@@ -138,7 +138,7 @@
                                 </div>
                             </div>
                             <div class="control-group">
-                                <label class="control-label" for="inputEmail"> Jumlah</label>
+                                <label class="control-label"> Jumlah</label>
                                 <div class="controls">
                                     @if($checkouttype==1)
                                     <input class="span6" type="text" name="jumlah" value="{{$order->total}}" required>

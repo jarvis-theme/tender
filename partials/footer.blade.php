@@ -44,17 +44,11 @@
 						<div class="pull-left cdata"><a href="mailto:{{$kontak->email}}" target="_top">{{$kontak->email}}</a></div>
 					</address>
 					@if($kontak->bb!='')
-					<address class="row-fluid">
-						<div class="pull-left clabel" style="width: 10%; padding-right: 2%">
-							<img src="{{url('img/bbm.png')}}">
+					<address class="row-fluid" title="BBM">
+						<div class="pull-left clabel" style="width: 23px; padding-right: 2px">
+							<img src="{{url('img/bbm.png')}}" alt="BBM">
 						</div>
-						<div class="pull-left cdata" style="width: 70%">{{$kontak->bb}}</div>
-					</address>
-					@endif
-					@if($kontak->ym)
-					<address class="row-fluid">
-						<div class="pull-left clabel"></div>
-						<div class="pull-left cdata">{{ymyahoo($kontak->ym)}}</div>
+						<div class="pull-left cdata" style="width: 70%">{{ strtoupper($kontak->bb) }}</div>
 					</address>
 					@endif
 				@else

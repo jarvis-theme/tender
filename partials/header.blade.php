@@ -21,7 +21,7 @@
 				@if( logo_image_url() )
 					<div class="span8 logo image">
 						<a href="{{url('home')}}">
-							<img src="{{url(logo_image_url())}}" alt="logo" />
+							<img src="{{url(logo_image_url())}}" alt="logo" onerror="this.src='//d3kamn3rg2loz7.cloudfront.net/blogs/no-image.png';" />
 						</a>
 					</div>
 				@else

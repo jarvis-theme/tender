@@ -4,9 +4,9 @@
 		{{ generate_theme_css('tender/assets/css/font.css') }}
 
 		@if($tema->isiCss=='')
-		{{ generate_theme_css('tender/assets/css/style.css?v=003') }}
+		{{ generate_theme_css('tender/assets/css/style.css?v=004') }}
 		@else
-		{{ generate_theme_css('tender/assets/css/editstyle.css?v=003') }}
+		{{ generate_theme_css('tender/assets/css/editstyle.css?v=004') }}
 		@endif
 
 		<link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.jssocials/1.3.1/jssocials.css" />

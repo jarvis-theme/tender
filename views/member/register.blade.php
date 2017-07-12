@@ -8,44 +8,44 @@
 			<div class="span12">
 				{{Form::open(array('url'=>'member','method'=>'post','class'=>'form-horizontal'))}} 
 					<div class="control-group">
-						<label class="control-label" for="inputEmail"> Nama*</label>
+						<label class="control-label"> Nama*</label>
 						<div class="controls">
 							<input class="span6" type="text" name="nama" value="{{Input::old('nama')}}" required autofocus>
 						</div>
 					</div>
 
 					<div class="control-group">
-						<label class="control-label" for="inputEmail"> Email*</label>
+						<label class="control-label"> Email*</label>
 						<div class="controls">
 							<input type="email" class="span6" name="email" value="{{Input::old('email')}}" required>
 						</div>
 					</div>
 
 					<div class="control-group">
-						<label class="control-label" for="inputEmail"> Password*</label>
+						<label class="control-label"> Password*</label>
 						<div class="controls">
 							<input class="span6" type="password" name="password" required>
 						</div>
 					</div>
 
 					<div class="control-group">
-						<label class="control-label" for="inputEmail"> Confirm Password*</label>
+						<label class="control-label"> Konfirmasi Password*</label>
 						<div class="controls">
 							<input class="span6" type="password" name="password_confirmation" required>
 						</div>
 					</div>
 
 					<div class="control-group">
-						<label class="control-label" for="inputEmail"> Alamat*</label>
+						<label class="control-label"> Alamat*</label>
 						<div class="controls">
-							<textarea class="span6" name='alamat' required>{{Input::old("alamat")}}</textarea>
+							<textarea class="span6" name="alamat" rows="3" required>{{Input::old("alamat")}}</textarea>
 						</div>
 					</div>
 
 					<div class="control-group">
-						<label class="control-label" for="inputEmail"> Negara*</label>
+						<label class="control-label"> Negara*</label>
 						<div class="controls">
-							<select name="negara" id="negara" data-rel="chosen" required>
+							<select class="span6" name="negara" id="negara" data-rel="chosen" required>
 								<option selected>-- Pilih Negara --</option>
 								@foreach ($negara as $key=>$item)
 									@if(strtolower($item)=='indonesia')
@@ -57,43 +57,43 @@
 					</div>
 
 					<div class="control-group">
-						<label class="control-label" for="inputEmail"> Provinsi*</label>
+						<label class="control-label"> Provinsi*</label>
 						<div class="controls" id="provinsiPlace">
-							{{Form::select('provinsi',array('' => '-- Pilih Provinsi --') + $provinsi, Input::old("provinsi"), array('required', 'id'=>"provinsi", 'data-rel'=>"chosen"))}} 
+							{{Form::select("provinsi",array("" => "-- Pilih Provinsi --") + $provinsi, Input::old("provinsi"), array("required", "class"=>"span6", "id"=>"provinsi", "data-rel"=>"chosen"))}} 
 						</div>
 					</div>
 
 					<div class="control-group">
-						<label class="control-label" for="inputEmail"> Kota*</label>
+						<label class="control-label"> Kota*</label>
 						<div class="controls" id="kotaPlace">
-							{{Form::select('kota',array('' => '-- Pilih Kota --') + $kota, Input::old("kota"), array('required'=>'','id'=>'kota'))}} 
+							{{Form::select('kota',array('' => '-- Pilih Kota --') + $kota, Input::old("kota"), array('required'=>'','class'=>'span6','id'=>'kota'))}} 
 						</div>
 					</div>
 
 					<div class="control-group">
-						<label class="control-label" for="inputEmail"> Kode Pos*</label>
+						<label class="control-label"> Kode Pos*</label>
 						<div class="controls">
-							<input class="span3" type="text" name="kodepos" value="{{Input::old('kodepos')}}" required>
+							<input class="span3" type="number" name="kodepos" value="{{Input::old('kodepos')}}" required>
 						</div>
 					</div>
 
 					<div class="control-group">
-						<label class="control-label" for="inputEmail"> Telepon / HP*</label>
+						<label class="control-label"> Telepon / HP*</label>
 						<div class="controls">
-							<input class="span4" type="text" name="telp" value="{{Input::old('telp')}}" required>
+							<input class="span3" type="text" name="telp" value="{{Input::old('telp')}}" required>
 						</div>
 					</div>
 
 					<div class="control-group">
-						<label class="control-label" for="inputEmail"> Captcha</label>
+						<label class="control-label"> Captcha*</label>
 						<div class="controls">
-							{{ HTML::image(Captcha::img(), 'Captcha image') }}<br><br>
-							{{Form::text('captcha')}} 
+							{{ HTML::image(Captcha::img(), 'Captcha image') }}
+							{{Form::text('captcha','',array('class'=>'span3'))}} 
 						</div>
 					</div>
 
 					<div class="control-group">
-						<label class="control-label" for="inputEmail"></label>
+						<label class="control-label"></label>
 						<div class="controls">
 							<input type="checkbox" name="readme" value="1" checked> Saya telah membaca dan menyetujui <a href="{{url('service')}}" target="_blank">Persyaratan Member</a>
 						</div>

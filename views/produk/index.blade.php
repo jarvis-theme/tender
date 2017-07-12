@@ -24,7 +24,7 @@
 						<a href="{{product_url($item)}}">
 							<article class="clearfix">
 								<div class="thumb hidden-phone">
-									{{HTML::image(url(product_image_url($item->gambar1,'thumb')), $item->nama)}} 
+									{{HTML::image(url(product_image_url($item->gambar1,'thumb')), $item->nama, array("onerror" => "this.src='//d3kamn3rg2loz7.cloudfront.net/blogs/no-image.png';"))}} 
 								</div>
 								<div class="info">
 									{{short_description($item->nama, 32)}}<br>
@@ -41,7 +41,7 @@
 						@foreach(vertical_banner() as $item) 
 						<div class="sidebanner">
 							<a href="{{url($item->url)}}">
-								{{HTML::image(url(banner_image_url($item->gambar)), 'Info Promo '.$i++)}} 
+								{{HTML::image(url(banner_image_url($item->gambar)), 'Info Promo '.$i++, array("onerror" => "this.src='//d3kamn3rg2loz7.cloudfront.net/blogs/no-image.png';"))}} 
 							</a>
 						</div>
 						@endforeach	
@@ -52,10 +52,11 @@
 
 			<div class="span9">
 				<div class="row-fluid">
+					{{--*/ $j=0; /*--}}
 					@foreach(horizontal_banner() as $item)
 					<div id="horizontal-banner">
 						<a href="{{url($item->url)}}">
-							{{HTML::image(banner_image_url($item->gambar),'Info Promo')}} 
+							{{HTML::image(banner_image_url($item->gambar), 'Info Promo '.$j++, array("onerror" => "this.src='//d3kamn3rg2loz7.cloudfront.net/blogs/no-image.png';"))}} 
 						</a>
 					</div>
 					@endforeach
@@ -65,14 +66,14 @@
 						@foreach(list_product(null,@$category,@$collection) as $myproduk)
 							<article id="list-produk">
 								@if(is_outstok($myproduk))
-								{{is_outstok($myproduk)}} 
+                            	<img src="//cdn2.jarvis-store.com/assets/tender/img/stok-badge.png" class="outstok-badge">
 								@elseif(is_terlaris($myproduk))
-								{{is_terlaris($myproduk)}} 
+                            	<img src="//cdn2.jarvis-store.com/assets/tender/img/terlaris-badge.png" class="best-badge">
 								@elseif(is_produkbaru($myproduk))
-								{{is_produkbaru($myproduk)}} 
+                            	<img src="//cdn2.jarvis-store.com/assets/tender/img/new-badge.png" class="new-badge">
 								@endif
 								<div class="view view-thumb">
-									{{HTML::image(url(product_image_url($myproduk->gambar1,'medium')), $myproduk->nama, array('class'=>'img1'))}} 
+									{{HTML::image(url(product_image_url($myproduk->gambar1,'medium')), $myproduk->nama, array('class'=>'img1', "onerror" => "this.src='//d3kamn3rg2loz7.cloudfront.net/blogs/no-image.png';"))}} 
 									<div class="mask">
 										<h2>{{price($myproduk->hargaJual)}}</h2>
 										<p>{{short_description($myproduk->deskripsi,100)}}</p>

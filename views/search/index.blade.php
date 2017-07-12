@@ -11,9 +11,8 @@
 						@foreach($hasilpro as $myproduk)
 						<article class="align-justify">
 							<div class="span1">
-								{{--HTML::image(product_image_url($myproduk->gambar1, 'thumb'), $myproduk->nama)--}}
 								<a href="{{product_url($myproduk)}}">
-									<img src="{{product_image_url($myproduk->gambar1,'thumb')}}" alt="{{$myproduk->nama}}" id="gambar" title="{{$myproduk->nama}}" />
+									<img src="{{product_image_url($myproduk->gambar1,'thumb')}}" alt="{{$myproduk->nama}}" id="gambar" title="{{$myproduk->nama}}" onerror="this.src='//d3kamn3rg2loz7.cloudfront.net/blogs/no-image.png';" />
 								</a>
 							</div>
 

@@ -741,9 +741,15 @@ section.product .sidebar section.bestproduk article { border: none; }
 .new-badge, .best-badge, .outstok-badge {
 	top: 15px;
 	right: -1px;
-	width: initial;
+	width: 75px;
 	height: initial;
 }
+.addtocart input[name="qty"] {
+	width: 30px;
+	margin-top: 10px;
+}
+input[name="readme"] { margin-top: 0; }
+
 
 /* ================= */
 /* Responsive styles */
@@ -802,6 +808,11 @@ section.product .sidebar section.bestproduk article { border: none; }
 	#horizontal-banner { margin: 0 0 15px 0; }
 	section.product .sidebar { padding-left: 0; }
 	section.product .tab-content.sideline { overflow: inherit; }
+	.addtocart input[name="qty"] {
+		width: 35px;
+		display: inline-block;
+		margin-right: 5px;
+	}
 }
 
 @media (max-width: 600px) {
@@ -839,4 +850,27 @@ section.product .sidebar section.bestproduk article { border: none; }
 }
 @media (min-width: 768px) and (max-width: 800px) {
 	.email{width: 65%}
+}
+@media (max-width: 340px) {
+	.welcome .greet,
+	.cart#shoppingcartplace {
+		width: 100%;
+	}
+	.counter {
+		width: 90%;
+		min-width: initial;
+		margin-top: 10px;
+		float: none;
+	}
+}
+@media (max-width: 320px) {
+	section.single select[name="opsiproduk"] {
+		width: 100%;
+	}
+}
+@media (max-width: 280px) {
+	.addtocart input[name="qty"]{
+		width: 100%;
+	}
+	.addtocart input[type="submit"] { margin-top: 20px; }
 }
