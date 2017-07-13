@@ -44,7 +44,7 @@
 								<label>Pesan</label>
 								<textarea class="input-block-level" rows="5" name="messageKontak" required></textarea>
 							</div>
-							<p><input type="submit" class="btn" value="Kirim"/></p>
+							<p><input type="submit" class="btn theme" value="Kirim"/></p>
 						</div>
 					</form>
 				</div>

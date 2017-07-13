@@ -2,7 +2,7 @@
     <section class="feat">
         <div class="row">
             <div class="span12">
-                <h6 class="subhead"><strong>BARANG POPULER</strong></h6>
+                <h3 class="subhead"><strong>BARANG POPULER</strong></h3>
                 <div class="tab-content row">
                     @foreach(home_product() as $key=>$myproduk)
                     <div class="tab-pane active" id="feat">

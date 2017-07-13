@@ -8,8 +8,8 @@
             <div class="row-fluid">
                 <div class="span6">
                     <ul class="nav nav-tabs" id="myTab">
+                        <li class="active"><a href="#forgot"><i class="icon-help"></i> Reset Password</a></li>
                         <li><a href="#login"><i class="icon-lock"></i> Login</a></li>
-                        <li class="active"><a href="#forgot"><i class="icon-help"></i> Lupa Password</a></li>
                     </ul>
 
                     <div class="tab-content">

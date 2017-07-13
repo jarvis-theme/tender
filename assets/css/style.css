@@ -749,7 +749,11 @@ section.product .sidebar section.bestproduk article { border: none; }
 	margin-top: 10px;
 }
 input[name="readme"] { margin-top: 0; }
-
+#myTab.nav-tabs > li { margin-bottom: -1px; }
+section.order .tab-content { overflow: initial; }
+.table-responsive { overflow: auto; }
+a.logout { color: #E55137; font-weight: bold; }
+a.logout:hover { opacity: 0.7; }
 
 /* ================= */
 /* Responsive styles */
@@ -813,6 +817,7 @@ input[name="readme"] { margin-top: 0; }
 		display: inline-block;
 		margin-right: 5px;
 	}
+	header.prime > h1 { font-size: 1.5rem; }
 }
 
 @media (max-width: 600px) {
@@ -867,6 +872,7 @@ input[name="readme"] { margin-top: 0; }
 	section.single select[name="opsiproduk"] {
 		width: 100%;
 	}
+	#profile select { width: 100%; }
 }
 @media (max-width: 280px) {
 	.addtocart input[name="qty"]{

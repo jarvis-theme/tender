@@ -8,7 +8,7 @@
             <div class="row-fluid">
                 <div class="span6">
                     <ul class="nav nav-tabs" id="myTab">
-                        <li class="active"><a href="#login"><i class="icon-lock"></i> Pelanggan lama</a></li>
+                        <li class="active"><a href="#login"><i class="icon-lock"></i> Pelanggan Lama</a></li>
                         <li><a href="#forgot"><i class="icon-help"></i> Lupa Password</a></li>
                     </ul>
 
@@ -40,7 +40,7 @@
                                 <div class="control-group">
                                     <label class="control-label" for="inputEmail"> Email</label>
                                     <div class="controls">
-                                      <input type="email" id="inputEmail" class="input-block-level" name="recoveryEmail">
+                                      <input type="email" id="inputEmail" class="input-block-level" name="recoveryEmail" required>
                                     </div>
                                 </div>
 

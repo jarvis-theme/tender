@@ -5,7 +5,7 @@
 				@if ( !is_login() )
 					Selamat berbelanja, {{HTML::link('member', 'Login')}} 
 				@else
-					Selamat datang {{HTML::link('member', user()->nama)}}, {{HTML::link('logout', 'logout')}} 
+					Selamat datang {{HTML::link('member', user()->nama)}}, {{HTML::link('logout', 'Logout', array('class'=>'logout'))}} 
 				@endif
 			</div>
 			<div class="pull-right cart tleft" id='shoppingcartplace'>
