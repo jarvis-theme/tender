@@ -66,11 +66,11 @@
 						@foreach(list_product(null,@$category,@$collection) as $myproduk)
 							<article id="list-produk">
 								@if(is_outstok($myproduk))
-                            	<img src="//cdn2.jarvis-store.com/assets/tender/img/stok-badge.png" class="outstok-badge">
+                            	<img src="https://s3-ap-southeast-1.amazonaws.com/cdn2.jarvis-store.comm/assets/tender/img/stok-badge.png" class="outstok-badge">
 								@elseif(is_terlaris($myproduk))
-                            	<img src="//cdn2.jarvis-store.com/assets/tender/img/terlaris-badge.png" class="best-badge">
+                            	<img src="https://s3-ap-southeast-1.amazonaws.com/cdn2.jarvis-store.com/assets/tender/img/terlaris-badge.png" class="best-badge">
 								@elseif(is_produkbaru($myproduk))
-                            	<img src="//cdn2.jarvis-store.com/assets/tender/img/new-badge.png" class="new-badge">
+                            	<img src="https://s3-ap-southeast-1.amazonaws.com/cdn2.jarvis-store.com/assets/tender/img/new-badge.png" class="new-badge">
 								@endif
 								<div class="view view-thumb">
 									{{HTML::image(url(product_image_url($myproduk->gambar1,'medium')), $myproduk->nama, array('class'=>'img1', "onerror" => "this.src='//d3kamn3rg2loz7.cloudfront.net/blogs/no-image.png';"))}} 
