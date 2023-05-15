@@ -8,11 +8,11 @@
                     <div class="tab-pane active" id="feat">
                         <article id="popular" class="span4">
                             @if(is_outstok($myproduk)) 
-                            <img src="//cdn2.jarvis-store.com/assets/tender/img/stok-badge.png" class="outstok-badge">
+                            <img src="https://s3-ap-southeast-1.amazonaws.com/cdn2.jarvis-store.com/assets/tender/img/stok-badge.png" class="outstok-badge">
                             @elseif(is_terlaris($myproduk)) 
-                            <img src="//cdn2.jarvis-store.com/assets/tender/img/terlaris-badge.png" class="best-badge">
+                            <img src="https://s3-ap-southeast-1.amazonaws.com/cdn2.jarvis-store.com/assets/tender/img/terlaris-badge.png" class="best-badge">
                             @elseif(is_produkbaru($myproduk)) 
-                            <img src="//cdn2.jarvis-store.com/assets/tender/img/new-badge.png" class="new-badge">
+                            <img src="https://s3-ap-southeast-1.amazonaws.com/cdn2.jarvis-store.com/assets/tender/img/new-badge.png" class="new-badge">
                             @endif
 
                             <div class="view view-thumb">
